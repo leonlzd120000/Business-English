@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The New Age of Agentic AI • Economist Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Source+Serif+4:opsz,wght@8..60,400;600&amp;display=swap');
+        
+        .font-display { font-family: 'Playfair Display', Georgia, serif; }
+        .font-serif { font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif; }
+        
+        .economist-red { color: #E3120B; }
+        
+        .article-body {
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+        
+        /* Mobile responsive enhancements */
+        @media (max-width: 640px) {
+            .article-body {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+            
+            h1.font-display {
+                font-size: 2rem !important;
+                line-height: 1.15 !important;
+                letter-spacing: -1px !important;
+            }
+            
+            .vocab-highlight {
+                font-size: 0.98rem;
+            }
+            
+            .chinese-paragraph {
+                padding: 12px 14px;
+                font-size: 0.92rem;
+            }
+            
+            #vocab-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .max-w-3xl {
+                max-width: 100% !important;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .play-paragraph-btn {
+                opacity: 0.7;
+            }
+        }
+        
+        .vocab-highlight {
+            color: #7C3AED;
+            font-weight: 600;
+            background: linear-gradient(transparent 65%, #7C3AED 65%);
+            background-size: 100% 3px;
+            background-repeat: no-repeat;
+            background-position: 0 100%;
+            padding-bottom: 1px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .vocab-highlight:hover {
+            background: linear-gradient(transparent 60%, #7C3AED 60%);
+        }
+        
+        .zh-inline {
+            font-size: 0.875rem;
+            background-color: #fefce8;
+            color: #713f12;
+            padding: 1px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
+            font-weight: 500;
+        }
+        
+        .paragraph-block {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .english-paragraph {
+            margin-bottom: 0.5rem;
+        }
+        
+        .chinese-paragraph {
+            font-size: 0.98rem;
+            color: #4B5563;
+            background-color: #f8fafc;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border-left: 3px solid #E3120B;
+            line-height: 1.7;
+        }
+        
+        .dark .chinese-paragraph {
+            background-color: #1F2937;
+            color: #9CA3AF;
+            border-left-color: #D4B568;
+        }
+        
+        .play-paragraph-btn {
+            opacity: 0.4;
+            transition: opacity 0.2s ease;
+        }
+        
+        .paragraph-block:hover .play-paragraph-btn {
+            opacity: 0.9;
+        }
+        
+        .glass-nav {
+            background: rgba(251, 248, 241, 0.88);
+            backdrop-filter: blur(20px);
+        }
+        
+        .dark .glass-nav {
+            background: rgba(15, 15, 15, 0.88);
+        }
+        
+        .vocab-card {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .vocab-card:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05);
+        }
+        
+        .tooltip {
+            position: absolute;
+            background: #1F2937;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            z-index: 100;
+            max-width: 280px;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            display: none;
+        }
+        
+        .dark .tooltip {
+            background: #374151;
+        }
+    </style>
+</head>
+<body class="bg-[#fbf8f1] text-[#1F2937] dark:bg-[#0F0F0F] dark:text-[#E5E5E5]">
+    <!-- Navigation -->
+    <nav class="glass-nav sticky top-0 z-50 border-b border-black/5 dark:border-white/10">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="flex items-center gap-x-2">
+                    <div class="w-8 h-8 bg-[#E3120B] flex items-center justify-center rounded">
+                        <span class="text-white font-bold text-xl">E</span>
+                    </div>
+                    <span class="font-display text-xl font-bold">The Economist</span>
+                    <span class="text-xs text-[#E3120B] font-medium">Learning</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-x-2">
+                <button onclick="exportToCSV()" class="px-3 py-1.5 text-sm flex items-center gap-x-1.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                    <i class="fa-solid fa-download text-xs"></i>
+                    <span class="hidden sm:inline">导出词汇</span>
+                </button>
+                <button id="theme-toggle" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10" aria-label="Toggle theme">
+                    <i class="fa-solid fa-sun text-lg dark:hidden"></i>
+                    <i class="fa-solid fa-moon text-lg hidden dark:block text-[#D4B568]"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="max-w-3xl mx-auto px-6 pt-12 pb-8">
+        <div class="flex items-center gap-x-3 mb-4">
+            <span class="px-3 py-1 bg-[#E3120B] text-white text-xs font-semibold tracking-[0.5px] rounded">Technology</span>
+            <span class="text-[#6B7280] dark:text-[#9CA3AF] text-sm">May 2026</span>
+        </div>
+        
+        <h1 class="font-display text-[42px] md:text-[52px] leading-[1.05] tracking-[-1.8px] font-bold mb-4">
+            The New Age of Agentic AI
+        </h1>
+        <p class="text-xl text-[#4B5563] dark:text-[#A3A3A3] max-w-2xl">How autonomous AI agents are reshaping work, creativity, and decision-making.</p>
+    </div>
+
+    <!-- Article -->
+    <div class="max-w-3xl mx-auto px-6">
+        <div class="h-px bg-gradient-to-r from-transparent via-[#E3120B] to-transparent opacity-15 mb-8"></div>
+        
+        <div id="article-content" class="article-body font-serif">
+            
+            <!-- Paragraph 1 -->
+            <div class="paragraph-block">
+                <p class="english-paragraph">In boardrooms and laboratories across the world, a quiet revolution is underway. Companies are no longer merely experimenting with large language models; they are deploying <span class="vocab-highlight" data-word="autonomous">autonomous</span> AI agents capable of planning, reasoning, and executing complex tasks with minimal human oversight.</p>
+                <p class="chinese-paragraph">在全球各地的董事会和实验室中，一场悄然的革命正在进行。公司不再仅仅是对大语言模型进行实验，而是正在部署能够自主规划、推理并执行复杂任务的 AI 代理，且几乎不需要人工监督。</p>
+            </div>
+
+            <!-- Paragraph 2 -->
+            <div class="paragraph-block">
+                <p class="english-paragraph">These <span class="vocab-highlight" data-word="agentic">agentic</span> systems represent a fundamental shift from reactive chatbots to proactive digital workers. Unlike traditional AI tools that respond to single prompts, agentic AI can break down ambitious goals into sequential steps, use tools, and adapt when faced with obstacles.</p>
+                <p class="chinese-paragraph">这些代理式系统代表了从被动聊天机器人到主动数字工作者的根本转变。与传统的 AI 工具仅响应单一提示不同，代理式 AI 可以将宏大的目标分解为连续步骤、使用工具，并在遇到障碍时进行调整。</p>
+            </div>
+
+            <!-- Paragraph 3 -->
+            <div class="paragraph-block">
+                <p class="english-paragraph">The implications for productivity are profound. A single well-designed agent can now handle research, data analysis, report drafting, and even basic software development — tasks that previously required teams of specialists. This is not merely automation; it is <span class="vocab-highlight" data-word="augmentation">augmentation</span> of human capability.</p>
+                <p class="chinese-paragraph">这对生产力的影响是深远的。一个设计良好的代理现在可以处理研究、数据分析、报告起草，甚至基础软件开发——这些任务以前需要专业团队来完成。这不仅仅是自动化，更是对人类能力的增强。</p>
+            </div>
+
+            <!-- Paragraph 4 -->
+            <div class="paragraph-block">
+                <p class="english-paragraph">Yet this rapid progress raises urgent questions about governance, safety, and the future of work. As agents become more capable, organizations must grapple with how to maintain meaningful human oversight while still capturing the enormous efficiency gains these systems promise.</p>
+                <p class="chinese-paragraph">然而，这种快速进步也带来了关于治理、安全和工作未来的紧迫问题。随着代理变得越来越强大，组织必须思考如何在保持有意义的人类监督的同时，捕获这些系统所承诺的巨大效率提升。</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Core Vocabulary -->
+    <div class="max-w-3xl mx-auto px-6 py-12">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="font-display text-2xl font-bold tracking-tight">Core Vocabulary</h2>
+            <button onclick="addCustomWord()" class="text-sm px-4 py-2 rounded-lg border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 flex items-center gap-x-2">
+                <i class="fa-solid fa-plus"></i>
+                <span>添加自定义词</span>
+            </button>
+        </div>
+        
+        <div id="vocab-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <!-- Populated by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Core vocabulary data (12 words)
+        let vocabulary = [
+            {
+                word: "autonomous",
+                phonetic: "/ɔːˈtɒnəməs/",
+                pos: "adj.",
+                meaning: "自主的；独立的",
+                example: "The autonomous vehicle navigated the city without human intervention.",
+                highlighted: true
+            },
+            {
+                word: "agentic",
+                phonetic: "/eɪˈdʒentɪk/",
+                pos: "adj.",
+                meaning: "代理式的；能主动行动的",
+                example: "Agentic AI systems can pursue complex goals over extended periods.",
+                highlighted: true
+            },
+            {
+                word: "augmentation",
+                phonetic: "/ˌɔːɡmenˈteɪʃn/",
+                pos: "n.",
+                meaning: "增强；扩大",
+                example: "AI augmentation allows professionals to achieve more in less time.",
+                highlighted: true
+            },
+            {
+                word: "governance",
+                phonetic: "/ˈɡʌvənəns/",
+                pos: "n.",
+                meaning: "治理；管理",
+                example: "Strong AI governance frameworks are essential for responsible deployment.",
+                highlighted: true
+            },
+            {
+                word: "proactive",
+                phonetic: "/prəʊˈæktɪv/",
+                pos: "adj.",
+                meaning: "主动的；前瞻性的",
+                example: "Proactive agents anticipate problems before they occur.",
+                highlighted: true
+            },
+            {
+                word: "sequential",
+                phonetic: "/sɪˈkwenʃl/",
+                pos: "adj.",
+                meaning: "顺序的；连续的",
+                example: "The agent breaks tasks into sequential, manageable steps.",
+                highlighted: true
+            },
+            {
+                word: "oversight",
+                phonetic: "/ˈəʊvəsaɪt/",
+                pos: "n.",
+                meaning: "监督； oversight",
+                example: "Human oversight remains critical even with advanced AI systems.",
+                highlighted: true
+            },
+            {
+                word: "implications",
+                phonetic: "/ˌɪmplɪˈkeɪʃnz/",
+                pos: "n.",
+                meaning: "影响；含义",
+                example: "The implications for the future of work are profound.",
+                highlighted: true
+            },
+            {
+                word: "capability",
+                phonetic: "/ˌkeɪpəˈbɪləti/",
+                pos: "n.",
+                meaning: "能力；才能",
+                example: "These systems demonstrate remarkable reasoning capability.",
+                highlighted: true
+            },
+            {
+                word: "obstacles",
+                phonetic: "/ˈɒbstəklz/",
+                pos: "n.",
+                meaning: "障碍；阻碍",
+                example: "The agent adapts when faced with unexpected obstacles.",
+                highlighted: true
+            },
+            {
+                word: "productivity",
+                phonetic: "/ˌprɒdʌkˈtɪvəti/",
+                pos: "n.",
+                meaning: "生产力；生产效率",
+                example: "Agentic AI has the potential to dramatically boost productivity.",
+                highlighted: true
+            },
+            {
+                word: "deployment",
+                phonetic: "/dɪˈplɔɪmənt/",
+                pos: "n.",
+                meaning: "部署；实施",
+                example: "Successful deployment requires careful testing and monitoring.",
+                highlighted: true
+            }
+        ];
+
+        // Render vocabulary grid
+        function renderVocabulary() {
+            const container = document.getElementById('vocab-grid');
+            container.innerHTML = '';
+            
+            vocabulary.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = `vocab-card bg-white dark:bg-[#1F2937] border border-black/5 dark:border-white/10 rounded-2xl p-5 flex flex-col`;
+                
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <div class="flex items-center gap-x-2">
+                                <span class="font-semibold text-lg tracking-tight">${item.word}</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-black/5 dark:bg-white/10 text-[#6B7280]">${item.pos}</span>
+                            </div>
+                            <div class="text-[#6B7280] dark:text-[#9CA3AF] text-sm font-mono mt-0.5">${item.phonetic}</div>
+                        </div>
+                        <div class="flex gap-x-1">
+                            <button onclick="speakWord('${item.word}', this)" class="w-8 h-8 flex items-center justify-center text-[#E3120B] hover:bg-red-50 dark:hover:bg-white/10 rounded-full">
+                                <i class="fa-solid fa-volume-up"></i>
+                            </button>
+                            <button onclick="deleteWord(${index})" class="w-8 h-8 flex items-center justify-center text-[#6B7280] hover:text-red-500 hover:bg-red-50 dark:hover:bg-white/10 rounded-full">
+                                <i class="fa-solid fa-trash text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="text-sm text-[#4B5563] dark:text-[#D1D5DB] mb-3">${item.meaning}</div>
+                    
+                    <div class="text-xs bg-[#f8fafc] dark:bg-[#111827] p-3 rounded-xl text-[#6B7280] dark:text-[#9CA3AF]">
+                        <span class="font-medium">例句：</span>${item.example}
+                    </div>
+                `;
+                
+                // Add click to highlight in article
+                card.onclick = (e) => {
+                    if (!e.target.closest('button')) {
+                        highlightInArticle(item.word);
+                    }
+                };
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Speak word
+        function speakWord(word, btn) {
+            speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(word);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.9;
+            
+            const original = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+            
+            utterance.onend = () => {
+                btn.innerHTML = original;
+            };
+            
+            speechSynthesis.speak(utterance);
+        }
+
+        // Highlight word in article
+        function highlightInArticle(word) {
+            document.querySelectorAll('.vocab-highlight').forEach(el => {
+                el.style.background = '';
+            });
+            
+            const highlights = document.querySelectorAll('.vocab-highlight');
+            highlights.forEach(el => {
+                if (el.textContent.toLowerCase() === word.toLowerCase()) {
+                    el.style.background = 'linear-gradient(transparent 50%, #7C3AED 50%)';
+                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    setTimeout(() => {
+                        el.style.background = '';
+                    }, 2000);
+                }
+            });
+        }
+
+        // Delete word
+        function deleteWord(index) {
+            vocabulary.splice(index, 1);
+            renderVocabulary();
+        }
+
+        // Add custom word
+        function addCustomWord() {
+            const word = prompt('请输入英文单词：');
+            if (!word) return;
+            
+            const meaning = prompt('请输入中文释义：');
+            if (!meaning) return;
+            
+            vocabulary.push({
+                word: word,
+                phonetic: '/.../',
+                pos: 'n./v./adj.',
+                meaning: meaning,
+                example: '请添加例句...',
+                highlighted: false
+            });
+            
+            renderVocabulary();
+        }
+
+        // Export to CSV
+        function exportToCSV() {
+            let csv = 'Word,Phonetic,POS,Meaning,Example\n';
+            
+            vocabulary.forEach(item => {
+                csv += `"${item.word}","${item.phonetic}","${item.pos}","${item.meaning}","${item.example}"\n`;
+            });
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'vocabulary.csv';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Theme toggle
+        function initTheme() {
+            const saved = localStorage.getItem('theme');
+            if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+            
+            document.getElementById('theme-toggle').addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+            });
+        }
+
+        // Speak paragraph
+        function speakParagraph(text, btn) {
+            speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.92;
+            
+            const original = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+            
+            utterance.onend = () => btn.innerHTML = original;
+            speechSynthesis.speak(utterance);
+        }
+
+        // Initialize everything
+        function initialize() {
+            initTheme();
+            renderVocabulary();
+            
+            // Add play buttons to paragraphs
+            document.querySelectorAll('.paragraph-block').forEach(block => {
+                const englishP = block.querySelector('.english-paragraph');
+                if (englishP && !block.querySelector('.play-paragraph-btn')) {
+                    const btn = document.createElement('button');
+                    btn.className = 'play-paragraph-btn absolute right-0 top-1 text-[#E3120B] hover:text-[#B91C1C]';
+                    btn.innerHTML = '<i class="fa-solid fa-play text-sm"></i>';
+                    btn.onclick = () => speakParagraph(englishP.textContent, btn);
+                    block.appendChild(btn);
+                }
+            });
+            
+            // Make vocabulary highlights clickable
+            document.querySelectorAll('.vocab-highlight').forEach(el => {
+                el.onclick = () => {
+                    const word = el.textContent;
+                    const vocabItem = vocabulary.find(v => v.word.toLowerCase() === word.toLowerCase());
+                    if (vocabItem) {
+                        highlightInArticle(word);
+                    }
+                };
+            });
+        }
+        
+        window.onload = initialize;
+    </script>
+</body>
+</html>
