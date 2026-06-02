@@ -1,30 +1,1773 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Google's new anything-to-anything AI model is wild</title><style>
-:root{--paper:#fbf8f1;--ink:#17130f;--muted:#6b6258;--red:#d92e17;--purple:#7c3aed;--yellow:#fefce8;--rule:#e6dfcf}*{box-sizing:border-box}body{margin:0;background:#282522;color:var(--ink);font-family:Georgia,'Noto Serif SC',serif}.shell{display:grid;grid-template-columns:300px 1fr;gap:24px;max-width:1280px;margin:0 auto;padding:24px}aside,main{background:var(--paper);box-shadow:0 26px 70px #0007;border:1px solid #ffffff22}aside{position:sticky;top:24px;height:calc(100vh - 48px);padding:24px;overflow:auto}main{padding:48px 72px}.brand{display:inline-block;background:var(--red);color:#fff;padding:7px 14px;font-weight:800;font-style:italic}.toc-title{font-size:34px;line-height:.95;margin:18px 0}.toc a{display:block;text-decoration:none;color:var(--ink);border:1px solid #0001;background:#fff8;padding:14px;margin:10px 0;border-radius:10px}.toc a.active{border-color:var(--red);background:#d92e1714}.kicker{color:var(--red);font:700 12px/1.2 system-ui;letter-spacing:.2em;text-transform:uppercase;margin-top:40px}h1{font-size:clamp(46px,6vw,82px);line-height:.94;letter-spacing:-.045em;margin:18px 0 10px}h1 em{color:var(--red)}.cn-title{font:600 30px/1.35 system-ui,'PingFang SC';color:#39312a}.dek{font-size:23px;line-height:1.55;color:#554b42;font-style:italic;max-width:720px}.source{border-top:1px solid var(--rule);padding-top:16px;color:var(--muted);font:14px system-ui;margin:24px 0 48px}.source a{color:var(--red)}.article-block{border-top:1px solid var(--rule);padding:28px 0}.article-text{font-size:20px;line-height:1.85}.chinese{font:17px/2 'PingFang SC','Noto Sans SC',sans-serif;background:var(--yellow);border-left:4px solid var(--red);padding:18px 20px;margin-top:18px}.vocab-highlight{background:rgba(124,58,237,.16);color:#4c1d95;border-radius:4px;padding:1px 4px;cursor:pointer;font-weight:700}.vocab-highlight.active{text-decoration:underline 3px var(--purple);text-underline-offset:5px}.para-play,.para-restart,.speak,.add-btn{border:1px solid #0002;background:#fff;border-radius:999px;padding:7px 12px;margin:8px 8px 0 0;cursor:pointer}.vocab{margin-top:50px;border-top:3px solid var(--ink);padding-top:24px}.vocab-row{display:grid;grid-template-columns:1fr 1fr 2fr auto;gap:18px;align-items:center;border-bottom:1px solid var(--rule);padding:18px 0}.vocab-row h3{font-size:30px;margin:0}.phonetic{color:var(--muted);font-family:system-ui}.example{font-style:italic}.example-zh{font:14px/1.7 system-ui;color:#6b4f0a;background:var(--yellow);padding:8px}.tooltip{position:fixed;z-index:20;display:none;background:#1b1611;color:#fff;padding:12px 14px;border-radius:10px;max-width:260px;font:14px/1.5 system-ui;box-shadow:0 20px 45px #0005}.select-add{position:absolute;display:none;z-index:30}footer{border-top:1px solid var(--rule);margin-top:60px;padding-top:24px}@media(max-width:900px){.shell{display:block;padding:10px}aside{position:relative;height:auto;margin-bottom:12px}main{padding:28px 22px}.vocab-row{grid-template-columns:1fr}}</style></head><body><div class="shell"><aside><div class="brand">The Economist</div><h2 class="toc-title">Reading Shelf</h2><nav class="toc"><a href="ferrari-luce-jony-ive-ev.html">Ferrari's Luce EV Design Backlash</a><a class="active" href="gemini-omni-hands-on-deepfake-ai-video.html">Google's New Anything-to-Anything AI Model Is Wild</a></nav></aside><main><header><div class="brand">The Economist</div><div class="kicker">AI · Hands-on</div><h1>Google's new <em>anything-to-anything</em> AI model is wild</h1><p class="cn-title">Google 新的“万物转万物”AI 模型很疯狂</p><p class="dek">Gemini's Omni Flash model can generate AI video from real images and clips. Making it look like you're on a flight to France just got way easier.</p><p class="source">来源 · <a href="https://www.theverge.com/tech/936507/gemini-omni-hands-on-deepfake-ai-video">The Verge 原文链接</a></p></header><article><section class="article-block"><p class="article-text">Last year I <span class="vocab-highlight" data-word="deepfaked">deepfaked</span> my kid&#x27;s stuffed animal to make it look like his plush deer was on vacation.</p><button class="para-play" data-text="Last year I deepfaked my kid&#x27;s stuffed animal to make it look like his plush deer was on vacation.">Play / Pause</button><button class="para-restart" data-text="Last year I deepfaked my kid&#x27;s stuffed animal to make it look like his plush deer was on vacation.">Restart</button><p class="chinese">去年，我用深度伪造技术处理了我孩子的毛绒玩具，让他的毛绒小鹿看起来像是在度假。</p></section>
-<section class="article-block"><p class="article-text">It was an experiment to see if I could re-create the events depicted in a Gemini ad Google was running, and I never showed the videos of Buddy the deer on his adventures to my four-year-old. But it was a revealing exercise that made me think a lot about the difference between some harmless fun with <span class="vocab-highlight" data-word="generative">generative</span> AI and full-on <span class="vocab-highlight" data-word="slop">slop</span>. Maybe that Venn diagram is a perfect circle! Maybe not. But what I know for sure is that the tools to make realistic videos are surprisingly good, requiring surprisingly little effort and know-how. And that trend is continuing hot into Gemini&#x27;s Omni era.</p><button class="para-play" data-text="It was an experiment to see if I could re-create the events depicted in a Gemini ad Google was running, and I never showed the videos of Buddy the deer on his adventures to my four-year-old. But it was a revealing exercise that made me think a lot about the difference between some harmless fun with generative AI and full-on slop. Maybe that Venn diagram is a perfect circle! Maybe not. But what I know for sure is that the tools to make realistic videos are surprisingly good, requiring surprisingly little effort and know-how. And that trend is continuing hot into Gemini&#x27;s Omni era.">Play / Pause</button><button class="para-restart" data-text="It was an experiment to see if I could re-create the events depicted in a Gemini ad Google was running, and I never showed the videos of Buddy the deer on his adventures to my four-year-old. But it was a revealing exercise that made me think a lot about the difference between some harmless fun with generative AI and full-on slop. Maybe that Venn diagram is a perfect circle! Maybe not. But what I know for sure is that the tools to make realistic videos are surprisingly good, requiring surprisingly little effort and know-how. And that trend is continuing hot into Gemini&#x27;s Omni era.">Restart</button><p class="chinese">这是一次实验，看看我能不能重现 Google 当时 Gemini 广告里展示的情节；我也从来没有把小鹿 Buddy 冒险的视频给我四岁的孩子看。但这次实验很有启发性，让我反复思考：用生成式 AI 做一点无伤大雅的玩笑，和制造彻底的 AI 垃圾内容之间，到底有什么区别。也许这个维恩图就是一个完美的圆，也许不是。但我可以确定的是，制作逼真视频的工具已经出人意料地好用，需要的努力和专业知识也少得惊人。而这个趋势正在 Gemini 的 Omni 时代继续升温。</p></section>
-<section class="article-block"><p class="article-text">Omni is a new family of <span class="vocab-highlight" data-word="generative">generative</span> models that will allegedly one day be able to turn any kind of input -- photo, video, text -- into anything else. But for starters, it&#x27;s just creating video. Omni Flash is the first of these models Google has released, now available in the company&#x27;s AI video generation and editing platform, Flow. You can still use the previous model, Veo, if you want, but Omni improves on Veo in a few ways.</p><button class="para-play" data-text="Omni is a new family of generative models that will allegedly one day be able to turn any kind of input -- photo, video, text -- into anything else. But for starters, it&#x27;s just creating video. Omni Flash is the first of these models Google has released, now available in the company&#x27;s AI video generation and editing platform, Flow. You can still use the previous model, Veo, if you want, but Omni improves on Veo in a few ways.">Play / Pause</button><button class="para-restart" data-text="Omni is a new family of generative models that will allegedly one day be able to turn any kind of input -- photo, video, text -- into anything else. But for starters, it&#x27;s just creating video. Omni Flash is the first of these models Google has released, now available in the company&#x27;s AI video generation and editing platform, Flow. You can still use the previous model, Veo, if you want, but Omni improves on Veo in a few ways.">Restart</button><p class="chinese">Omni 是一组新的生成式模型，据称未来有一天能够把任何形式的输入--照片、视频、文本--转换成任何其他形式。不过一开始，它主要还是用来生成视频。Omni Flash 是 Google 发布的该系列首个模型，目前已经可以在 Google 的 AI 视频生成与编辑平台 Flow 中使用。如果你愿意，仍然可以使用之前的 Veo 模型，但 Omni 在几个方面比 Veo 有所改进。</p></section>
-<section class="article-block"><p class="article-text">With Omni, you can upload a video and use that along with a text <span class="vocab-highlight" data-word="prompt">prompt</span> as the starting point for your AI-generated creation. Google also claims Omni <span class="vocab-highlight" data-word="incorporates">incorporates</span> more real-world knowledge when producing videos and can do a better job of keeping characters <span class="vocab-highlight" data-word="consistent">consistent</span> throughout a video as a result. There was only one way to really know if those claims are true: I brought back AI Buddy to pack his little AI-generated bags for another adventure.</p><button class="para-play" data-text="With Omni, you can upload a video and use that along with a text prompt as the starting point for your AI-generated creation. Google also claims Omni incorporates more real-world knowledge when producing videos and can do a better job of keeping characters consistent throughout a video as a result. There was only one way to really know if those claims are true: I brought back AI Buddy to pack his little AI-generated bags for another adventure.">Play / Pause</button><button class="para-restart" data-text="With Omni, you can upload a video and use that along with a text prompt as the starting point for your AI-generated creation. Google also claims Omni incorporates more real-world knowledge when producing videos and can do a better job of keeping characters consistent throughout a video as a result. There was only one way to really know if those claims are true: I brought back AI Buddy to pack his little AI-generated bags for another adventure.">Restart</button><p class="chinese">使用 Omni 时，你可以上传一段视频，并把它和文本提示一起作为 AI 生成创作的起点。Google 还声称，Omni 在生成视频时融入了更多现实世界知识，因此能更好地在整段视频中保持角色一致。要验证这些说法是否属实，只有一个办法：我把 AI Buddy 又带了回来，让它收拾 AI 生成的小行李，准备再次冒险。</p></section>
-<section class="article-block"><p class="article-text">The results are such a mixed bag they&#x27;re <span class="vocab-highlight" data-word="baffling">baffling</span>. Some were very good -- much more <span class="vocab-highlight" data-word="consistent">consistent</span> and true to my <span class="vocab-highlight" data-word="prompt">prompt</span> than when I was testing out Veo five months ago. But even the best clips Omni cooked up for me still have certain AI jump scares, like when Buddy suddenly switches orientation while he&#x27;s skydiving.</p><button class="para-play" data-text="The results are such a mixed bag they&#x27;re baffling. Some were very good -- much more consistent and true to my prompt than when I was testing out Veo five months ago. But even the best clips Omni cooked up for me still have certain AI jump scares, like when Buddy suddenly switches orientation while he&#x27;s skydiving.">Play / Pause</button><button class="para-restart" data-text="The results are such a mixed bag they&#x27;re baffling. Some were very good -- much more consistent and true to my prompt than when I was testing out Veo five months ago. But even the best clips Omni cooked up for me still have certain AI jump scares, like when Buddy suddenly switches orientation while he&#x27;s skydiving.">Restart</button><p class="chinese">结果好坏参半，甚至令人困惑。有些结果非常好，比我五个月前测试 Veo 时更稳定，也更贴合我的提示词。但即使是 Omni 为我生成的最佳片段，仍然会出现某些 AI 式的突兀惊吓，比如 Buddy 在跳伞时突然改变朝向。</p></section>
-<section class="article-block"><p class="article-text">For another video, I gave Omni some artistic freedom. Create a <span class="vocab-highlight" data-word="montage">montage</span> of Buddy packing for a vacation and embarking on a cruise ship for a tropical vacation. The mood is cute and playful. Buddy packs something funny in his suitcase that comes into play later in the clip. It had Buddy pack a jar of honey; later in the clip he reaches for it as if it&#x27;s a bottle of sunscreen.</p><button class="para-play" data-text="For another video, I gave Omni some artistic freedom. Create a montage of Buddy packing for a vacation and embarking on a cruise ship for a tropical vacation. The mood is cute and playful. Buddy packs something funny in his suitcase that comes into play later in the clip. It had Buddy pack a jar of honey; later in the clip he reaches for it as if it&#x27;s a bottle of sunscreen.">Play / Pause</button><button class="para-restart" data-text="For another video, I gave Omni some artistic freedom. Create a montage of Buddy packing for a vacation and embarking on a cruise ship for a tropical vacation. The mood is cute and playful. Buddy packs something funny in his suitcase that comes into play later in the clip. It had Buddy pack a jar of honey; later in the clip he reaches for it as if it&#x27;s a bottle of sunscreen.">Restart</button><p class="chinese">在另一段视频里，我给了 Omni 一些艺术自由。我提示它制作一个蒙太奇，内容是 Buddy 为度假打包，并登上一艘邮轮去热带度假。氛围要可爱、俏皮。于是它让 Buddy 打包了一罐蜂蜜；后来 Buddy 把它当成防晒霜一样拿起来。</p></section>
-<section class="article-block"><p class="article-text">Honestly, not a bad bit. Except that the bottle of honey constantly changes throughout the video, from a jar, to a clear squirt bottle filled with water, then back to a squeeze bottle filled with honey. And I can&#x27;t even begin to describe how the model came up with the final frame of the video.</p><button class="para-play" data-text="Honestly, not a bad bit. Except that the bottle of honey constantly changes throughout the video, from a jar, to a clear squirt bottle filled with water, then back to a squeeze bottle filled with honey. And I can&#x27;t even begin to describe how the model came up with the final frame of the video.">Play / Pause</button><button class="para-restart" data-text="Honestly, not a bad bit. Except that the bottle of honey constantly changes throughout the video, from a jar, to a clear squirt bottle filled with water, then back to a squeeze bottle filled with honey. And I can&#x27;t even begin to describe how the model came up with the final frame of the video.">Restart</button><p class="chinese">老实说，这个桥段还不错。问题在于，那瓶蜂蜜在整段视频里不断变形：一会儿是罐子，一会儿变成装着水的透明挤压瓶，随后又变回装满蜂蜜的挤压瓶。至于模型是怎么生成最后一帧的，我甚至不知道该如何描述。</p></section>
-<section class="article-block"><p class="article-text">You can use text-based <span class="vocab-highlight" data-word="prompt">prompt</span>s to suggest edits to your videos, and I&#x27;ll give Google credit: This works better with Omni than it did when I tested Veo 3. But the results were bad with Veo. Omni will actually take your edits on board, but the results don&#x27;t always hit.</p><button class="para-play" data-text="You can use text-based prompts to suggest edits to your videos, and I&#x27;ll give Google credit: This works better with Omni than it did when I tested Veo 3. But the results were bad with Veo. Omni will actually take your edits on board, but the results don&#x27;t always hit.">Play / Pause</button><button class="para-restart" data-text="You can use text-based prompts to suggest edits to your videos, and I&#x27;ll give Google credit: This works better with Omni than it did when I tested Veo 3. But the results were bad with Veo. Omni will actually take your edits on board, but the results don&#x27;t always hit.">Restart</button><p class="chinese">你可以用基于文本的提示来建议修改视频，这一点我得给 Google 认可：Omni 在这方面比我测试 Veo 3 时表现更好。Veo 的修改结果很糟。Omni 确实会吸收你的修改意见，但结果并不总是到位。</p></section>
-<section class="article-block"><p class="article-text">I had it emphasize Buddy&#x27;s facial reactions in his vacation clips, and the results just wound up looking strange. It would also give Buddy antlers from time to time, which he does not have. When I <span class="vocab-highlight" data-word="prompt">prompt</span>ed it to remove the antlers that appeared in one scene, it obliged -- and then added antlers in all the other ones.</p><button class="para-play" data-text="I had it emphasize Buddy&#x27;s facial reactions in his vacation clips, and the results just wound up looking strange. It would also give Buddy antlers from time to time, which he does not have. When I prompted it to remove the antlers that appeared in one scene, it obliged -- and then added antlers in all the other ones.">Play / Pause</button><button class="para-restart" data-text="I had it emphasize Buddy&#x27;s facial reactions in his vacation clips, and the results just wound up looking strange. It would also give Buddy antlers from time to time, which he does not have. When I prompted it to remove the antlers that appeared in one scene, it obliged -- and then added antlers in all the other ones.">Restart</button><p class="chinese">我让它强化 Buddy 在度假片段中的面部反应，结果看起来只是更奇怪。它还会时不时给 Buddy 加上鹿角，但 Buddy 本来没有鹿角。当我提示它移除某个场景里出现的鹿角时，它照做了--然后又在其他所有场景里加上了鹿角。</p></section>
-<section class="article-block"><p class="article-text">The thing is, none of this is free. Generating videos costs credits, varying from 15 to 40 credits based on the length of the scene and the ingredients you start with. One round of edits costs 40 credits.</p><button class="para-play" data-text="The thing is, none of this is free. Generating videos costs credits, varying from 15 to 40 credits based on the length of the scene and the ingredients you start with. One round of edits costs 40 credits.">Play / Pause</button><button class="para-restart" data-text="The thing is, none of this is free. Generating videos costs credits, varying from 15 to 40 credits based on the length of the scene and the ingredients you start with. One round of edits costs 40 credits.">Restart</button><p class="chinese">问题是，这一切都不是免费的。生成视频需要消耗点数，根据场景长度和你提供的素材不同，每次会消耗 15 到 40 点。一轮编辑就要 40 点。</p></section>
-<section class="article-block"><p class="article-text">One of Omni&#x27;s purported strengths is adding AI-generated stuff to real videos, so I gave Buddy a break and <span class="vocab-highlight" data-word="deepfaked">deepfaked</span> myself. Starting with a selfie video with a neutral expression, I <span class="vocab-highlight" data-word="prompt">prompt</span>ed Omni to generate videos of me eating a plate of spaghetti, sitting in an airplane seat, and standing in front of the Eiffel Tower taking a bite out of a baguette.</p><button class="para-play" data-text="One of Omni&#x27;s purported strengths is adding AI-generated stuff to real videos, so I gave Buddy a break and deepfaked myself. Starting with a selfie video with a neutral expression, I prompted Omni to generate videos of me eating a plate of spaghetti, sitting in an airplane seat, and standing in front of the Eiffel Tower taking a bite out of a baguette.">Play / Pause</button><button class="para-restart" data-text="One of Omni&#x27;s purported strengths is adding AI-generated stuff to real videos, so I gave Buddy a break and deepfaked myself. Starting with a selfie video with a neutral expression, I prompted Omni to generate videos of me eating a plate of spaghetti, sitting in an airplane seat, and standing in front of the Eiffel Tower taking a bite out of a baguette.">Restart</button><p class="chinese">Omni 据称的一大强项，是把 AI 生成的内容添加到真实视频里，所以我让 Buddy 休息一下，转而深度伪造了我自己。我从一段表情中性的自拍视频开始，提示 Omni 生成我吃意大利面、坐在飞机座位上，以及站在埃菲尔铁塔前咬一口法棍的视频。</p></section>
-<section class="article-block"><p class="article-text">There are AI tells in my deepfake videos. The clink of the fork hitting the bowl of pasta is a little too manufactured. There&#x27;s a woman in the background of the airplane video who shows up twice. But aside from those little glitches and a vaguely <span class="vocab-highlight" data-word="uncanny">uncanny</span> sense about them, they&#x27;re <span class="vocab-highlight" data-word="convincing">convincing</span> as hell.</p><button class="para-play" data-text="There are AI tells in my deepfake videos. The clink of the fork hitting the bowl of pasta is a little too manufactured. There&#x27;s a woman in the background of the airplane video who shows up twice. But aside from those little glitches and a vaguely uncanny sense about them, they&#x27;re convincing as hell.">Play / Pause</button><button class="para-restart" data-text="There are AI tells in my deepfake videos. The clink of the fork hitting the bowl of pasta is a little too manufactured. There&#x27;s a woman in the background of the airplane video who shows up twice. But aside from those little glitches and a vaguely uncanny sense about them, they&#x27;re convincing as hell.">Restart</button><p class="chinese">我的深度伪造视频里确实有 AI 痕迹。叉子碰到意大利面碗的叮当声显得有点太刻意。飞机视频背景里还有一个女人出现了两次。但除了这些小瑕疵，以及一种隐约的诡异感之外，它们真的非常有说服力。</p></section>
-<section class="article-block"><p class="article-text">I showed my husband the pasta clip; he knew I was testing an AI video tool but I didn&#x27;t tell him what in the scene had been generated by AI. The pasta-eating itself looked real enough to convince my husband.</p><button class="para-play" data-text="I showed my husband the pasta clip; he knew I was testing an AI video tool but I didn&#x27;t tell him what in the scene had been generated by AI. The pasta-eating itself looked real enough to convince my husband.">Play / Pause</button><button class="para-restart" data-text="I showed my husband the pasta clip; he knew I was testing an AI video tool but I didn&#x27;t tell him what in the scene had been generated by AI. The pasta-eating itself looked real enough to convince my husband.">Restart</button><p class="chinese">我把吃意大利面的片段给我丈夫看；他知道我在测试 AI 视频工具，但我没有告诉他画面中哪些部分是 AI 生成的。吃面的动作本身真实到足以骗过我丈夫。</p></section>
-<section class="article-block"><p class="article-text">My other deepfakes are varying levels of good enough to fool people on social media. A couple of the Eiffel Tower clips look slightly cartoonish, but one of them is <span class="vocab-highlight" data-word="convincing">convincing</span> enough that you might need to rewatch it a few times to clock that it&#x27;s AI.</p><button class="para-play" data-text="My other deepfakes are varying levels of good enough to fool people on social media. A couple of the Eiffel Tower clips look slightly cartoonish, but one of them is convincing enough that you might need to rewatch it a few times to clock that it&#x27;s AI.">Play / Pause</button><button class="para-restart" data-text="My other deepfakes are varying levels of good enough to fool people on social media. A couple of the Eiffel Tower clips look slightly cartoonish, but one of them is convincing enough that you might need to rewatch it a few times to clock that it&#x27;s AI.">Restart</button><p class="chinese">我的其他深度伪造视频则处于不同程度的足以骗过社交媒体用户水平。有几个埃菲尔铁塔片段看起来略带卡通感，但其中一个足够逼真，你可能需要反复看几遍才会意识到它是 AI。</p></section>
-<section class="article-block"><p class="article-text">I&#x27;m a little exhausted by it all, to be honest. I was shocked when I tested Veo 3 at the realism it could produce. I should probably be shocked by Omni too, and I guess I am, but the edge has worn off.</p><button class="para-play" data-text="I&#x27;m a little exhausted by it all, to be honest. I was shocked when I tested Veo 3 at the realism it could produce. I should probably be shocked by Omni too, and I guess I am, but the edge has worn off.">Play / Pause</button><button class="para-restart" data-text="I&#x27;m a little exhausted by it all, to be honest. I was shocked when I tested Veo 3 at the realism it could produce. I should probably be shocked by Omni too, and I guess I am, but the edge has worn off.">Restart</button><p class="chinese">坦白说，我对这一切有点疲惫了。我测试 Veo 3 时，曾被它能产生的真实感震惊。按理说我也应该被 Omni 震惊，我想我的确有些震惊，但那种锋利的冲击感已经磨损了。</p></section>
-<section class="article-block"><p class="article-text">It&#x27;s still not quite as easy to make an AI-generated cinematic masterpiece as Google would like you to believe. But Omni does improve on Veo in some recognizable ways. I don&#x27;t think we&#x27;re at the foothills of the <span class="vocab-highlight" data-word="singularity">singularity</span> exactly, but we&#x27;re definitely deep in the <span class="vocab-highlight" data-word="uncanny valley">uncanny valley</span>.</p><button class="para-play" data-text="It&#x27;s still not quite as easy to make an AI-generated cinematic masterpiece as Google would like you to believe. But Omni does improve on Veo in some recognizable ways. I don&#x27;t think we&#x27;re at the foothills of the singularity exactly, but we&#x27;re definitely deep in the uncanny valley.">Play / Pause</button><button class="para-restart" data-text="It&#x27;s still not quite as easy to make an AI-generated cinematic masterpiece as Google would like you to believe. But Omni does improve on Veo in some recognizable ways. I don&#x27;t think we&#x27;re at the foothills of the singularity exactly, but we&#x27;re definitely deep in the uncanny valley.">Restart</button><p class="chinese">要制作一部 AI 生成的电影级杰作，仍然没有 Google 想让你相信的那么容易。但 Omni 确实在一些明显方面改进了 Veo。我不认为我们已经处在所谓奇点山脚下，但我们肯定已经深入了恐怖谷。</p></section>
-<section class="article-block"><p class="article-text">All images and videos in this story were generated by Google Gemini.</p><button class="para-play" data-text="All images and videos in this story were generated by Google Gemini.">Play / Pause</button><button class="para-restart" data-text="All images and videos in this story were generated by Google Gemini.">Restart</button><p class="chinese">本文中的所有图片和视频均由 Google Gemini 生成。</p></section></article><section class="vocab" id="core-vocabulary"><h2>Core Vocabulary</h2><div class="vocab-row" id="vocab-1"><div><h3>deepfaked</h3><p class="phonetic">/ˈdiːpfeɪkt/</p></div><p class="meaning">用深度伪造技术生成或修改</p><div><p class="example">“I deepfaked my kid&#x27;s stuffed animal to make it look like his plush deer was on vacation.”</p><p class="example-zh">我用深度伪造技术处理了孩子的毛绒玩具。</p></div><button class="speak" data-text="deepfaked">▶</button></div>
-<div class="vocab-row" id="vocab-2"><div><h3>generative</h3><p class="phonetic">/ˈdʒenərətɪv/</p></div><p class="meaning">生成式的</p><div><p class="example">“Generative AI can create video from text prompts.”</p><p class="example-zh">生成式 AI 可以根据文本提示创建视频。</p></div><button class="speak" data-text="generative">▶</button></div>
-<div class="vocab-row" id="vocab-3"><div><h3>slop</h3><p class="phonetic">/slɑːp/</p></div><p class="meaning">粗制滥造的内容；低质 AI 内容</p><div><p class="example">“The author questions where harmless fun ends and full-on slop begins.”</p><p class="example-zh">作者质疑无害娱乐和低质 AI 内容之间的界线。</p></div><button class="speak" data-text="slop">▶</button></div>
-<div class="vocab-row" id="vocab-4"><div><h3>incorporates</h3><p class="phonetic">/ɪnˈkɔːrpəreɪts/</p></div><p class="meaning">融入，包含</p><div><p class="example">“Google claims Omni incorporates more real-world knowledge.”</p><p class="example-zh">Google 声称 Omni 融入了更多现实世界知识。</p></div><button class="speak" data-text="incorporates">▶</button></div>
-<div class="vocab-row" id="vocab-5"><div><h3>consistent</h3><p class="phonetic">/kənˈsɪstənt/</p></div><p class="meaning">一致的，稳定的</p><div><p class="example">“Omni can keep characters consistent throughout a video.”</p><p class="example-zh">Omni 能在整段视频中保持角色一致。</p></div><button class="speak" data-text="consistent">▶</button></div>
-<div class="vocab-row" id="vocab-6"><div><h3>baffling</h3><p class="phonetic">/ˈbæflɪŋ/</p></div><p class="meaning">令人困惑的</p><div><p class="example">“The results are such a mixed bag they are baffling.”</p><p class="example-zh">结果好坏参半，甚至令人困惑。</p></div><button class="speak" data-text="baffling">▶</button></div>
-<div class="vocab-row" id="vocab-7"><div><h3>montage</h3><p class="phonetic">/mɑːnˈtɑːʒ/</p></div><p class="meaning">蒙太奇，组接片段</p><div><p class="example">“Create a montage of Buddy packing for a vacation.”</p><p class="example-zh">制作一个 Buddy 为度假打包的蒙太奇。</p></div><button class="speak" data-text="montage">▶</button></div>
-<div class="vocab-row" id="vocab-8"><div><h3>uncanny</h3><p class="phonetic">/ʌnˈkæni/</p></div><p class="meaning">诡异的，似真非真的</p><div><p class="example">“The videos have a vaguely uncanny sense about them.”</p><p class="example-zh">这些视频带有一种隐约的诡异感。</p></div><button class="speak" data-text="uncanny">▶</button></div>
-<div class="vocab-row" id="vocab-9"><div><h3>convincing</h3><p class="phonetic">/kənˈvɪnsɪŋ/</p></div><p class="meaning">有说服力的，逼真的</p><div><p class="example">“The deepfake videos are convincing as hell.”</p><p class="example-zh">这些深度伪造视频非常逼真。</p></div><button class="speak" data-text="convincing">▶</button></div>
-<div class="vocab-row" id="vocab-10"><div><h3>singularity</h3><p class="phonetic">/ˌsɪŋɡjəˈlærəti/</p></div><p class="meaning">奇点</p><div><p class="example">“We are not exactly at the foothills of the singularity.”</p><p class="example-zh">我们并不完全处在奇点山脚下。</p></div><button class="speak" data-text="singularity">▶</button></div>
-<div class="vocab-row" id="vocab-11"><div><h3>uncanny valley</h3><p class="phonetic">/ʌnˈkæni ˈvæli/</p></div><p class="meaning">恐怖谷</p><div><p class="example">“We are definitely deep in the uncanny valley.”</p><p class="example-zh">我们肯定已经深入了恐怖谷。</p></div><button class="speak" data-text="uncanny valley">▶</button></div>
-<div class="vocab-row" id="vocab-12"><div><h3>prompt</h3><p class="phonetic">/prɑːmpt/</p></div><p class="meaning">提示词；用提示词引导</p><div><p class="example">“You can use text-based prompts to suggest edits.”</p><p class="example-zh">你可以使用文本提示来建议修改。</p></div><button class="speak" data-text="prompt">▶</button></div></section><footer></footer></main></div><div class="tooltip" id="tip"></div><button class="add-btn select-add" id="addBtn">加入词汇表</button><script>
-const vocab={'deepfaked':'/ˈdiːpfeɪkt/ · 用深度伪造技术生成或修改','generative':'/ˈdʒenərətɪv/ · 生成式的','slop':'/slɑːp/ · 粗制滥造的内容；低质 AI 内容','incorporates':'/ɪnˈkɔːrpəreɪts/ · 融入，包含','consistent':'/kənˈsɪstənt/ · 一致的，稳定的','baffling':'/ˈbæflɪŋ/ · 令人困惑的','montage':'/mɑːnˈtɑːʒ/ · 蒙太奇，组接片段','uncanny':'/ʌnˈkæni/ · 诡异的，似真非真的','convincing':'/kənˈvɪnsɪŋ/ · 有说服力的，逼真的','singularity':'/ˌsɪŋɡjəˈlærəti/ · 奇点','uncanny valley':'/ʌnˈkæni ˈvæli/ · 恐怖谷','prompt':'/prɑːmpt/ · 提示词；用提示词引导'};let current=null;function speak(t){if(!('speechSynthesis'in window))return;if(current){speechSynthesis.cancel();current=null}const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.9;current=u;speechSynthesis.speak(u)}document.querySelectorAll('.speak,.para-play,.para-restart').forEach(b=>b.onclick=()=>speak(b.dataset.text));const tip=document.getElementById('tip');document.querySelectorAll('.vocab-highlight').forEach(el=>{el.onclick=e=>{const w=el.dataset.word;tip.innerHTML='<b>'+w+'</b><br>'+ (vocab[w]||'');tip.style.left=Math.min(e.clientX+12,innerWidth-280)+'px';tip.style.top=(e.clientY+12)+'px';tip.style.display='block';}});document.addEventListener('click',e=>{if(!e.target.classList.contains('vocab-highlight'))tip.style.display='none'});const add=document.getElementById('addBtn');document.addEventListener('selectionchange',()=>{const s=getSelection();if(!s||!s.toString().trim()){add.style.display='none';return}const r=s.getRangeAt(0).getBoundingClientRect();add.style.left=(scrollX+r.left)+'px';add.style.top=(scrollY+r.bottom+8)+'px';add.style.display='block';});add.onclick=()=>{document.getElementById('core-vocabulary').scrollIntoView({behavior:'smooth'});add.style.display='none'};</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Economist · Gemini Omni Deepfake AI Video</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root {
+    --paper: #fbf8f1;
+    --paper-2: #f3eee2;
+    --ink: #1a1614;
+    --ink-2: #3a342f;
+    --ink-3: #6b6359;
+    --ink-4: #9a9286;
+    --rule: #e6dfcf;
+    --rule-2: #d8cfba;
+    --economist-red: #e3120b;
+    --economist-red-deep: #b30c06;
+    --accent: #b8860b;
+    --highlight-cn: #fff2b8;
+    --highlight-cn-ink: #6b4f0a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Serif 4', 'Noto Sans SC', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(0,0,0,0.018) 1px, transparent 0);
+    background-size: 4px 4px;
+    opacity: 0.6;
+  }
+
+  body > * { position: relative; z-index: 1; }
+
+  .serif-display { font-family: 'Playfair Display', 'Source Serif 4', Georgia, serif; }
+  .serif-body { font-family: 'Source Serif 4', Georgia, serif; }
+  .sans { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+  .cn { font-family: 'Noto Sans SC', "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+
+  .smallcaps {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    font-size: 0.72rem;
+    color: var(--ink-3);
+  }
+
+  .masthead {
+    background: rgba(251, 248, 241, 0.85);
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .brand-mark {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    background: var(--economist-red);
+    color: #fff;
+    padding: 4px 14px 6px;
+    line-height: 1;
+    border-radius: 2px;
+  }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--economist-red);
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    background: transparent;
+  }
+
+  .meta-line {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+  }
+
+  .theme-toggle {
+    display: inline-flex; align-items: center;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 3px;
+    gap: 2px;
+  }
+  .theme-btn {
+    padding: 6px 14px;
+    border: none; border-radius: 999px;
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 12px; font-weight: 500;
+    cursor: pointer;
+    background: transparent;
+    color: var(--ink-3);
+    transition: all .35s cubic-bezier(.23,1,.32,1);
+    white-space: nowrap;
+  }
+  .theme-btn.active {
+    background: var(--ink);
+    color: var(--paper);
+    box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  }
+
+  .kicker {
+    display: inline-flex; align-items: baseline; gap: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--economist-red);
+  }
+  .kicker .kicker-rule {
+    width: 36px; height: 2px; background: var(--economist-red);
+    display: inline-block;
+  }
+
+  h1.hero-en {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(2.6rem, 5.6vw, 4.6rem);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  h1.hero-en em { font-style: italic; font-weight: 700; color: var(--economist-red-deep); }
+
+  h2.hero-cn {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--ink-2);
+    margin-top: 18px;
+  }
+
+  .standfirst {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.65;
+    color: var(--ink-2);
+    max-width: 38em;
+    margin-top: 22px;
+  }
+
+  .byline {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    display: flex; align-items: center; gap: 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--ink-3);
+  }
+  .byline .dot { width: 4px; height: 4px; background: var(--ink-4); border-radius: 999px; }
+
+  .article-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1.18rem;
+    line-height: 1.78;
+    color: var(--ink);
+    letter-spacing: 0.005em;
+  }
+
+  .paragraph-audio {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0.9rem 0 0;
+    font-family: 'Inter', sans-serif;
+  }
+  .paragraph-audio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border: 1px solid rgba(227, 18, 11, 0.22);
+    background: rgba(227, 18, 11, 0.07);
+    color: var(--economist-red-deep);
+    border-radius: 999px;
+    padding: 0.42rem 0.82rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all .2s ease;
+  }
+  .paragraph-audio-btn:hover {
+    border-color: rgba(227, 18, 11, 0.42);
+    background: rgba(227, 18, 11, 0.12);
+    transform: translateY(-1px);
+  }
+  .paragraph-audio-btn.is-playing {
+    background: var(--economist-red);
+    color: #fff;
+    border-color: var(--economist-red);
+  }
+  .paragraph-audio-restart {
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--ink-3);
+    background: rgba(255, 255, 255, 0.64);
+    transition: all .2s ease;
+  }
+  .paragraph-audio-restart:hover {
+    color: var(--economist-red-deep);
+    border-color: rgba(227, 18, 11, 0.32);
+    background: rgba(227, 18, 11, 0.08);
+  }
+
+  .article-block:first-of-type .article-text::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 4.6em;
+    float: left;
+    line-height: 0.85;
+    margin: 0.08em 0.12em 0 -0.04em;
+    color: var(--economist-red-deep);
+  }
+
+  .spoken-word {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.16em;
+    transition: text-decoration-color .12s ease, background-color .12s ease;
+  }
+  .spoken-word.is-speaking {
+    text-decoration-color: var(--economist-red);
+    background: rgba(227, 18, 11, 0.08);
+    border-radius: 0.12em;
+  }
+
+  .chinese {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 400;
+    color: var(--ink-2);
+    font-size: 1.02rem;
+    line-height: 1.95;
+    margin-top: 1.1rem;
+    padding-top: 1.1rem;
+    border-top: 1px dashed var(--rule);
+    letter-spacing: 0.01em;
+  }
+
+  .vocab-highlight {
+    background: rgba(227, 18, 11, 0.12);
+    padding: 0.04em 0.16em 0.08em;
+    border-radius: 0.16em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--ink);
+    border-bottom: 1px solid rgba(227, 18, 11, 0.45);
+    transition: all .2s ease;
+  }
+  .vocab-highlight:hover {
+    background: rgba(227, 18, 11, 0.18);
+    color: var(--economist-red-deep);
+  }
+
+  .chinese-highlight {
+    background: var(--highlight-cn);
+    color: var(--highlight-cn-ink);
+    padding: 0.04em 0.18em 0.08em;
+    border-radius: 0.16em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex; align-items: center; gap: 18px;
+    margin: 80px 0 40px;
+    color: var(--ink-3);
+  }
+  .section-divider::before,
+  .section-divider::after {
+    content: ""; flex: 1; height: 1px; background: var(--rule);
+  }
+  .section-divider .ornament {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  .vocab-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+  }
+
+  .vocab-row {
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) 1fr auto;
+    gap: 28px;
+    align-items: start;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .vocab-row:last-child { border-bottom: 0; }
+
+  .vocab-word {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .vocab-phonetic {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    color: var(--ink-3);
+    margin-top: 4px;
+    letter-spacing: 0;
+  }
+  .vocab-meaning {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .vocab-example {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    color: var(--ink-3);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-top: 6px;
+    padding-left: 12px;
+    border-left: 2px solid var(--rule-2);
+  }
+  .vocab-example-zh {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-style: normal;
+    color: var(--ink-3);
+    font-size: 0.86rem;
+    line-height: 1.55;
+    margin-top: 4px;
+    opacity: 0.9;
+  }
+
+  .icon-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px;
+    border-radius: 999px;
+    color: var(--ink-3);
+    background: transparent;
+    border: 1px solid var(--rule);
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  .icon-btn:hover { color: var(--economist-red); border-color: var(--economist-red); background: rgba(227,18,11,0.04); }
+  .icon-btn.danger:hover { color: #b30c06; border-color: #b30c06; }
+
+  .input-field {
+    flex: 1;
+    background: #fff;
+    border: 1px solid var(--rule-2);
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s ease;
+  }
+  .input-field:focus { border-color: var(--ink); }
+  .input-field::placeholder { color: var(--ink-4); }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 12px 22px;
+    border-radius: 4px;
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: all .2s ease;
+  }
+  .btn-primary:hover { background: var(--economist-red); }
+  .btn-primary:active { transform: translateY(1px); }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+
+  .translation-tooltip {
+    position: absolute;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    z-index: 100;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .translation-tooltip .tooltip-phonetic {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    opacity: 0.72;
+    margin-bottom: 3px;
+  }
+  .translation-tooltip .tooltip-meaning {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .translation-tooltip::after {
+    content: ""; position: absolute;
+    bottom: -5px; left: 16px;
+    width: 10px; height: 10px;
+    background: var(--ink);
+    transform: rotate(45deg);
+  }
+
+  .selection-vocab-popover {
+    position: absolute;
+    z-index: 120;
+    display: none;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.72rem;
+    border: 1px solid rgba(227, 18, 11, 0.24);
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--paper);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.18);
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: transform .18s ease, background .18s ease;
+  }
+  .selection-vocab-popover:hover {
+    background: var(--economist-red);
+    transform: translateY(-1px);
+  }
+  .selection-vocab-popover.is-visible { display: inline-flex; }
+
+  .article-footer {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+  }
+  .article-footer .red-rule {
+    width: 60px; height: 4px;
+    background: var(--economist-red);
+    margin-bottom: 18px;
+  }
+
+  /* PREMIUM (高端质感) — Dark theme */
+  body.premium {
+    background: #0e0d0c;
+    color: #e8e1d1;
+  }
+  body.premium::before {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.025) 1px, transparent 0);
+    opacity: 0.5;
+  }
+
+  body.premium .masthead {
+    background: rgba(14, 13, 12, 0.88);
+    border-bottom-color: rgba(201, 168, 76, 0.18);
+  }
+  body.premium .brand-mark {
+    background: linear-gradient(135deg, #d4b568, #9a7b30);
+    color: #0e0d0c;
+  }
+  body.premium .pill {
+    color: #d4b568;
+    border-color: rgba(212, 181, 104, 0.5);
+  }
+  body.premium .meta-line { color: #8a8170; }
+
+  body.premium .theme-toggle {
+    background: #1a1815;
+    border-color: rgba(201, 168, 76, 0.18);
+  }
+  body.premium .theme-btn { color: #8a8170; }
+  body.premium .theme-btn.active {
+    background: linear-gradient(135deg, #d4b568, #9a7b30);
+    color: #0e0d0c;
+    box-shadow: 0 2px 12px rgba(212, 181, 104, 0.25);
+  }
+
+  body.premium .kicker { color: #d4b568; }
+  body.premium .kicker .kicker-rule { background: #d4b568; }
+
+  body.premium h1.hero-en { color: #f4ecd8; }
+  body.premium h1.hero-en em { color: #d4b568; }
+  body.premium h2.hero-cn { color: #b8b0a0; }
+  body.premium .standfirst { color: #b8b0a0; }
+  body.premium .byline {
+    color: #8a8170;
+    border-top-color: rgba(201, 168, 76, 0.18);
+  }
+  body.premium .byline .dot { background: #6a6358; }
+
+  body.premium .article-text { color: #d8cfb8; }
+  body.premium .article-block:first-of-type .article-text::first-letter { color: #d4b568; }
+  body.premium .spoken-word.is-speaking {
+    text-decoration-color: #d4b568;
+    background: rgba(212, 181, 104, 0.13);
+  }
+  body.premium .chinese {
+    color: #9a9282;
+    border-top-color: rgba(201, 168, 76, 0.14);
+  }
+
+  body.premium .vocab-highlight {
+    background: rgba(212, 181, 104, 0.18);
+    color: #f4ecd8;
+    border-bottom-color: rgba(212, 181, 104, 0.6);
+  }
+  body.premium .vocab-highlight:hover {
+    background: rgba(212, 181, 104, 0.24);
+    color: #d4b568;
+  }
+  body.premium .chinese-highlight {
+    background: rgba(212, 181, 104, 0.18);
+    color: #d4b568;
+  }
+
+  body.premium .section-divider { color: #8a8170; }
+  body.premium .section-divider::before,
+  body.premium .section-divider::after { background: rgba(201, 168, 76, 0.18); }
+  body.premium .section-divider .ornament { color: #8a8170; }
+
+  body.premium .smallcaps { color: #8a8170; }
+
+  body.premium .vocab-card {
+    background: #16140f;
+    border-color: rgba(201, 168, 76, 0.18);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  }
+  body.premium .vocab-row { border-bottom-color: rgba(201, 168, 76, 0.12); }
+  body.premium .vocab-word { color: #f4ecd8; }
+  body.premium .vocab-phonetic { color: #8a8170; }
+  body.premium .vocab-meaning { color: #d8cfb8; }
+  body.premium .vocab-example {
+    color: #8a8170;
+    border-left-color: rgba(201, 168, 76, 0.25);
+  }
+
+  body.premium .icon-btn {
+    color: #8a8170;
+    border-color: rgba(201, 168, 76, 0.22);
+  }
+  body.premium .icon-btn:hover {
+    color: #d4b568;
+    border-color: #d4b568;
+    background: rgba(212, 181, 104, 0.08);
+  }
+
+  body.premium .input-field {
+    background: #1a1814;
+    border-color: rgba(201, 168, 76, 0.22);
+    color: #e8e1d1;
+  }
+  body.premium .input-field:focus { border-color: #d4b568; }
+  body.premium .input-field::placeholder { color: #6a6358; }
+
+  body.premium .btn-primary {
+    background: linear-gradient(135deg, #d4b568, #9a7b30);
+    color: #0e0d0c;
+  }
+  body.premium .btn-primary:hover { filter: brightness(1.08); }
+
+  body.premium .stat-num { color: #f4ecd8; }
+
+  body.premium .translation-tooltip {
+    background: linear-gradient(135deg, #d4b568, #9a7b30);
+    color: #0e0d0c;
+  }
+  body.premium .translation-tooltip::after { background: #b89549; }
+
+  body.premium .selection-vocab-popover {
+    background: linear-gradient(135deg, #d4b568, #9a7b30);
+    color: #0e0d0c;
+    border-color: rgba(212, 181, 104, 0.38);
+  }
+
+  body.premium .article-footer {
+    border-top-color: #d4b568;
+    color: #8a8170;
+  }
+  body.premium .article-footer .red-rule { background: #d4b568; }
+
+  .news-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+  }
+  .news-sidebar {
+    position: sticky;
+    top: 112px;
+    align-self: start;
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.58);
+    padding: 18px;
+    box-shadow: 0 18px 50px rgba(30, 25, 18, 0.06);
+  }
+  .news-sidebar-title {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 12px;
+  }
+  .news-list {
+    display: grid;
+    gap: 8px;
+  }
+  .news-list button {
+    width: 100%;
+    text-align: left;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: transparent;
+    padding: 12px 12px 13px;
+    color: var(--ink-2);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 0.98rem;
+    line-height: 1.25;
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  .news-list button:hover,
+  .news-list button.active {
+    border-color: rgba(227, 18, 11, 0.2);
+    background: rgba(227, 18, 11, 0.07);
+    color: var(--ink);
+  }
+  .news-reader[hidden] { display: none; }
+
+  body.premium .news-sidebar {
+    background: rgba(20, 18, 14, 0.76);
+    border-color: rgba(201, 168, 76, 0.16);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+  }
+  body.premium .news-list button { color: #d8cfb8; }
+  body.premium .news-list button:hover,
+  body.premium .news-list button.active {
+    border-color: rgba(212, 181, 104, 0.28);
+    background: rgba(212, 181, 104, 0.1);
+    color: #f4ecd8;
+  }
+
+  body, .masthead, .vocab-card, h1, h2, p, span, input, button, div, .icon-btn {
+    transition: background-color .4s ease, color .4s ease,
+                border-color .4s ease, box-shadow .4s ease;
+  }
+
+  @media (max-width: 768px) {
+    .news-layout { display: block; }
+    .news-sidebar {
+      position: relative;
+      top: auto;
+      margin-bottom: 36px;
+    }
+    .vocab-row { grid-template-columns: 1fr auto; }
+    .vocab-row > .vocab-meta { grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body data-slug="gemini-omni-hands-on-deepfake-ai-video">
+<!-- verification-snippets:
+Last year I deepfaked my kid's stuffed animal to make it look like his plush deer was on vacation.
+Omni is a new family of generative models that will allegedly one day be able to turn any kind of input -- photo, video, text -- into anything else.
+The results are such a mixed bag they're baffling.
+-->
+
+<header class="masthead sticky top-0 z-50">
+  <div class="max-w-5xl mx-auto px-8 py-5 flex items-center justify-between gap-6">
+    <div class="flex items-center gap-4">
+      <span class="brand-mark text-xl">The Economist</span>
+    </div>
+    <div class="flex items-center gap-5">
+      <div class="theme-toggle cn">
+        <button class="theme-btn active" data-theme="clean" onclick="switchTheme('clean')">简洁</button>
+        <button class="theme-btn" data-theme="premium" onclick="switchTheme('premium')">高端质感</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-8 pt-16 pb-24">
+
+<div class="news-layout">
+  <aside class="news-sidebar" aria-label="News directory">
+    <div class="news-sidebar-title cn">新闻目录</div>
+    <nav class="news-list" id="news-list">
+      <button class="active" type="button" data-news-target="gemini-omni-hands-on-deepfake-ai-video">
+        Google's New Anything-to-Anything AI Model Is Wild
+      </button>
+      <button type="button" data-news-target="ferrari-luce-jony-ive-ev">
+        How Ferrari Bungled the Design of its First EV
+      </button>
+      <button type="button" data-news-target="paul-graham-ai-writing">
+        Don't Use AI When Emailing Paul Graham
+      </button>
+    </nav>
+  </aside>
+
+
+  <div class="news-reader" data-news-panel="gemini-omni-hands-on-deepfake-ai-video" data-audio-slug="gemini-omni-hands-on-deepfake-ai-video">
+
+  <section class="max-w-3xl">
+    <div class="kicker"><span class="kicker-rule"></span> Artificial Intelligence · Deepfake video</div>
+
+    <h1 class="hero-en mt-6">
+      Google's New <em>Anything-to-Anything</em><br>
+      AI Model Is <em>Wild</em>
+    </h1>
+
+    <h2 class="hero-cn cn">Google 新的“万物转万物”AI 模型很疯狂</h2>
+
+    <p class="standfirst">
+      Gemini's Omni Flash model can generate AI video from real images and clips. Making it look like you're on a flight to France just got way easier.
+    </p>
+
+    <div class="byline">
+      <span class="smallcaps">来源</span>
+      <span class="dot"></span>
+      <a href="https://www.theverge.com/tech/936507/gemini-omni-hands-on-deepfake-ai-video" target="_blank" rel="noopener noreferrer">The Verge 原文链接</a>
+    </div>
+  </section>
+
+  <article class="mt-16 max-w-3xl space-y-12">
+
+    <div class="article-block">
+      <p class="article-text">Last year I <span class="vocab-highlight" data-word="deepfaked" data-phonetic="/ˈdiːpfeɪkt/" data-meaning="用深度伪造技术生成或修改">deepfaked</span> my kid&#x27;s stuffed animal to make it look like his plush deer was on vacation.</p>
+      <p class="chinese cn">去年，我用深度伪造技术处理了我孩子的毛绒玩具，让他的毛绒小鹿看起来像是在度假。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">It was an experiment to see if I could re-create the events depicted in a Gemini ad Google was running, and I never showed the videos of Buddy the deer on his adventures to my four-year-old. But it was a revealing exercise that made me think a lot about the difference between some harmless fun with <span class="vocab-highlight" data-word="generative" data-phonetic="/ˈdʒenərətɪv/" data-meaning="生成式的">generative</span> AI and full-on <span class="vocab-highlight" data-word="slop" data-phonetic="/slɑːp/" data-meaning="粗制滥造的内容；低质 AI 内容">slop</span>. Maybe that Venn diagram is a perfect circle! Maybe not. But what I know for sure is that the tools to make realistic videos are surprisingly good, requiring surprisingly little effort and know-how. And that trend is continuing hot into Gemini&#x27;s Omni era.</p>
+      <p class="chinese cn">这是一次实验，看看我能不能重现 Google 当时 Gemini 广告里展示的情节；我也从来没有把小鹿 Buddy 冒险的视频给我四岁的孩子看。但这次实验很有启发性，让我反复思考：用生成式 AI 做一点无伤大雅的玩笑，和制造彻底的 AI 垃圾内容之间，到底有什么区别。也许这个维恩图就是一个完美的圆，也许不是。但我可以确定的是，制作逼真视频的工具已经出人意料地好用，需要的努力和专业知识也少得惊人。而这个趋势正在 Gemini 的 Omni 时代继续升温。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Omni is a new family of <span class="vocab-highlight" data-word="generative" data-phonetic="/ˈdʒenərətɪv/" data-meaning="生成式的">generative</span> models that will allegedly one day be able to turn any kind of input -- photo, video, text -- into anything else. But for starters, it&#x27;s just creating video. Omni Flash is the first of these models Google has released, now available in the company&#x27;s AI video generation and editing platform, Flow. You can still use the previous model, Veo, if you want, but Omni improves on Veo in a few ways.</p>
+      <p class="chinese cn">Omni 是一组新的生成式模型，据称未来有一天能够把任何形式的输入--照片、视频、文本--转换成任何其他形式。不过一开始，它主要还是用来生成视频。Omni Flash 是 Google 发布的该系列首个模型，目前已经可以在 Google 的 AI 视频生成与编辑平台 Flow 中使用。如果你愿意，仍然可以使用之前的 Veo 模型，但 Omni 在几个方面比 Veo 有所改进。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">With Omni, you can upload a video and use that along with a text <span class="vocab-highlight" data-word="prompt" data-phonetic="/prɑːmpt/" data-meaning="提示词；用提示词引导">prompt</span> as the starting point for your AI-generated creation. Google also claims Omni <span class="vocab-highlight" data-word="incorporates" data-phonetic="/ɪnˈkɔːrpəreɪts/" data-meaning="融入，包含">incorporates</span> more real-world knowledge when producing videos and can do a better job of keeping characters <span class="vocab-highlight" data-word="consistent" data-phonetic="/kənˈsɪstənt/" data-meaning="一致的，稳定的">consistent</span> throughout a video as a result. There was only one way to really know if those claims are true: I brought back AI Buddy to pack his little AI-generated bags for another adventure.</p>
+      <p class="chinese cn">使用 Omni 时，你可以上传一段视频，并把它和文本提示一起作为 AI 生成创作的起点。Google 还声称，Omni 在生成视频时融入了更多现实世界知识，因此能更好地在整段视频中保持角色一致。要验证这些说法是否属实，只有一个办法：我把 AI Buddy 又带了回来，让它收拾 AI 生成的小行李，准备再次冒险。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">The results are such a mixed bag they&#x27;re <span class="vocab-highlight" data-word="baffling" data-phonetic="/ˈbæflɪŋ/" data-meaning="令人困惑的">baffling</span>. Some were very good -- much more <span class="vocab-highlight" data-word="consistent" data-phonetic="/kənˈsɪstənt/" data-meaning="一致的，稳定的">consistent</span> and true to my <span class="vocab-highlight" data-word="prompt" data-phonetic="/prɑːmpt/" data-meaning="提示词；用提示词引导">prompt</span> than when I was testing out Veo five months ago. But even the best clips Omni cooked up for me still have certain AI jump scares, like when Buddy suddenly switches orientation while he&#x27;s skydiving.</p>
+      <p class="chinese cn">结果好坏参半，甚至令人困惑。有些结果非常好，比我五个月前测试 Veo 时更稳定，也更贴合我的提示词。但即使是 Omni 为我生成的最佳片段，仍然会出现某些 AI 式的突兀惊吓，比如 Buddy 在跳伞时突然改变朝向。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">For another video, I gave Omni some artistic freedom. "Create a <span class="vocab-highlight" data-word="montage" data-phonetic="/mɑːnˈtɑːʒ/" data-meaning="蒙太奇，组接片段">montage</span> of Buddy packing for a vacation and embarking on a cruise ship for a tropical vacation. The mood is cute and playful. Buddy packs something funny in his suitcase that comes into play later in the clip." It had Buddy pack a jar of honey; later in the clip he reaches for it as if it&#x27;s a bottle of sunscreen. "Uh oh," the character says as he squirts honey onto his hoof.</p>
+      <p class="chinese cn">在另一段视频里，我给了 Omni 一些艺术自由。我提示它："制作一个蒙太奇，内容是 Buddy 为度假打包，并登上一艘邮轮去热带度假。氛围要可爱、俏皮。Buddy 在行李箱里放一件有趣的东西，后面片段里会派上用场。" 于是它让 Buddy 打包了一罐蜂蜜；后来 Buddy 把它当成防晒霜一样拿起来。"糟了，"这个角色一边说，一边把蜂蜜挤到自己的蹄子上。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Honestly, not a bad bit. Except that the bottle of honey constantly changes throughout the video, from a jar, to a clear squirt bottle filled with water, then back to a squeeze bottle filled with honey. And I can&#x27;t even begin to describe how the model came up with the final frame of the video -- almost as if it just barfed up a bunch of elements of the sequence it just made.</p>
+      <p class="chinese cn">老实说，这个桥段还不错。问题在于，那瓶蜂蜜在整段视频里不断变形：一会儿是罐子，一会儿变成装着水的透明挤压瓶，随后又变回装满蜂蜜的挤压瓶。至于模型是怎么生成最后一帧的，我甚至不知道该如何描述--它几乎像是把刚刚生成的整段序列元素全都吐了出来。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">You can use text-based prompts to suggest edits to your videos, and I&#x27;ll give Google credit: This works better with Omni than it did when I tested Veo 3. But the results were bad with Veo -- so bad that I found it way easier to just <span class="vocab-highlight" data-word="prompt" data-phonetic="/prɑːmpt/" data-meaning="提示词；用提示词引导">prompt</span> a new video from scratch every time I wanted something changed. Omni will actually take your edits on board, but the results don&#x27;t always hit.</p>
+      <p class="chinese cn">你可以用基于文本的提示来建议修改视频，这一点我得给 Google 认可：Omni 在这方面比我测试 Veo 3 时表现更好。Veo 的修改结果很糟，糟到我每次想改东西时，直接从零重新提示生成一个新视频反而更容易。Omni 确实会吸收你的修改意见，但结果并不总是到位。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">I had it emphasize Buddy&#x27;s facial reactions in his vacation clips, and the results just wound up looking strange. It would also give Buddy antlers from time to time, which he does not have. Buddy is a baby, thank you very much. When I prompted it to remove the antlers that appeared in one scene, it obliged -- and then added antlers in all the other ones.</p>
+      <p class="chinese cn">我让它强化 Buddy 在度假片段中的面部反应，结果看起来只是更奇怪。它还会时不时给 Buddy 加上鹿角，但 Buddy 本来没有鹿角。Buddy 还是个宝宝，谢谢。当我提示它移除某个场景里出现的鹿角时，它照做了--然后又在其他所有场景里加上了鹿角。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">The thing is, none of this is free. Generating videos costs credits, varying from 15 to 40 credits based on the length of the scene and the "ingredients" you start with. One round of edits costs 40 credits. I have the $20-per-month AI Pro plan that comes with 1,000 credits each month. After around 20 clips generated with a few edits on some, I&#x27;m down to 145. If you have specific ideas about the video you want Omni to generate, you might be looking at a lot of costly back-and-forth with the model to get a video that&#x27;s close to your vision.</p>
+      <p class="chinese cn">问题是，这一切都不是免费的。生成视频需要消耗点数，根据场景长度和你提供的"素材"不同，每次会消耗 15 到 40 点。一轮编辑就要 40 点。我订阅的是每月 20 美元的 AI Pro 套餐，每月包含 1000 点。在生成了大约 20 个片段并对其中一些进行几次编辑后，我只剩 145 点。如果你对 Omni 要生成的视频有很具体的想法，可能需要和模型进行大量昂贵的来回调整，才能得到接近你愿景的视频。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">One of Omni&#x27;s purported strengths is adding AI-generated stuff to real videos, so I gave Buddy a break and <span class="vocab-highlight" data-word="deepfaked" data-phonetic="/ˈdiːpfeɪkt/" data-meaning="用深度伪造技术生成或修改">deepfaked</span> myself. Starting with a selfie video with a neutral expression, I prompted Omni to generate videos of me eating a plate of spaghetti, sitting in an airplane seat, and standing in front of the Eiffel Tower taking a bite out of a baguette. And I can genuinely say I wasn&#x27;t prepared for what I saw.</p>
+      <p class="chinese cn">Omni 据称的一大强项，是把 AI 生成的内容添加到真实视频里，所以我让 Buddy 休息一下，转而深度伪造了我自己。我从一段表情中性的自拍视频开始，提示 Omni 生成我吃一盘意大利面、坐在飞机座位上，以及站在埃菲尔铁塔前咬一口法棍的视频。我真心可以说，我完全没准备好看到那些结果。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">There are AI tells in my deepfake videos. The clink of the fork hitting the bowl of pasta is a little too manufactured. There&#x27;s a woman in the background of the airplane video who shows up twice. But aside from those little glitches and a vaguely <span class="vocab-highlight" data-word="uncanny" data-phonetic="/ʌnˈkæni/" data-meaning="诡异的，似真非真的">uncanny</span> sense about them, they&#x27;re <span class="vocab-highlight" data-word="convincing" data-phonetic="/kənˈvɪnsɪŋ/" data-meaning="有说服力的，逼真的">convincing</span> as hell.</p>
+      <p class="chinese cn">我的深度伪造视频里确实有 AI 痕迹。叉子碰到意大利面碗的叮当声显得有点太刻意。飞机视频背景里还有一个女人出现了两次。但除了这些小瑕疵，以及一种隐约的诡异感之外，它们真的非常有说服力。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">I showed my husband the pasta clip; he knew I was testing an AI video tool but I didn&#x27;t tell him what in the scene had been generated by AI. Without knowing what was AI-generated about it, he bought that I was sitting in front of a camera eating pasta, and said that his only clue something was up was that the bowl looked unfamiliar. The pasta-eating itself looked real enough to convince my husband. A man who has looked at me in real life basically every single day for the last decade.</p>
+      <p class="chinese cn">我把吃意大利面的片段给我丈夫看；他知道我在测试 AI 视频工具，但我没有告诉他画面中哪些部分是 AI 生成的。在不知道具体哪里是 AI 的情况下，他相信那是我坐在镜头前吃意大利面，并说唯一让他觉得不对劲的线索，是那个碗看起来不熟悉。吃面的动作本身真实到足以骗过我丈夫--一个过去十年几乎每天都在现实生活中看着我的人。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">My other deepfakes are varying levels of "good enough to fool people on social media." A couple of the Eiffel Tower clips look slightly cartoonish, but one of them is <span class="vocab-highlight" data-word="convincing" data-phonetic="/kənˈvɪnsɪŋ/" data-meaning="有说服力的，逼真的">convincing</span> enough that you might need to rewatch it a few times to clock that it&#x27;s AI. I know it&#x27;s not me when the AI me turns her head and reveals her hair pulled back in a ponytail. But I&#x27;m not sure anyone else would know the difference, and that makes me feel weird.</p>
+      <p class="chinese cn">我的其他深度伪造视频则处于不同程度的"足以骗过社交媒体用户"水平。有几个埃菲尔铁塔片段看起来略带卡通感，但其中一个足够逼真，你可能需要反复看几遍才会意识到它是 AI。当 AI 版的我转过头，露出扎成马尾的头发时，我知道那不是我。但我不确定其他人是否能看出区别，这让我感觉很奇怪。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">I&#x27;m a little exhausted by it all, to be honest. I was shocked when I tested Veo 3 at the realism it could produce. I&#x27;ve been shocked at how easy it is to make fake people in fake photos again and again over the past few years. I should probably be shocked by Omni too, and I guess I am, but the edge has worn off.</p>
+      <p class="chinese cn">坦白说，我对这一切有点疲惫了。我测试 Veo 3 时，曾被它能产生的真实感震惊。过去几年里，我也一次又一次被"制造假照片里的假人"这件事变得如此容易所震惊。按理说我也应该被 Omni 震惊，我想我的确有些震惊，但那种锋利的冲击感已经磨损了。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">It&#x27;s still not quite as easy to make an AI-generated cinematic masterpiece as Google would like you to believe. But Omni does improve on Veo in some recognizable ways. If you have a Google account and a credit card, then you can take a video of yourself sitting at home and make it look like you&#x27;re on a flight to Maui with a trivial amount of effort. I don&#x27;t think we&#x27;re at the "foothills of the <span class="vocab-highlight" data-word="singularity" data-phonetic="/ˌsɪŋɡjəˈlærəti/" data-meaning="奇点">singularity</span>" exactly, but we&#x27;re definitely deep in the <span class="vocab-highlight" data-word="<span class="vocab-highlight" data-word="uncanny" data-phonetic="/ʌnˈkæni/" data-meaning="诡异的，似真非真的">uncanny</span> valley" data-phonetic="/ʌnˈkæni ˈvæli/" data-meaning="恐怖谷">uncanny valley</span>.</p>
+      <p class="chinese cn">要制作一部 AI 生成的电影级杰作，仍然没有 Google 想让你相信的那么容易。但 Omni 确实在一些明显方面改进了 Veo。如果你有一个 Google 账号和一张信用卡，那么你可以拍一段自己坐在家里的视频，然后用极少的努力让它看起来像你正在飞往毛伊岛。我不认为我们已经处在所谓"奇点山脚下"，但我们肯定已经深入了恐怖谷。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">All images and videos in this story were generated by Google Gemini.</p>
+      <p class="chinese cn">本文中的所有图片和视频均由 Google Gemini 生成。</p>
+    </div>
+
+  </article>
+
+  <section class="mt-20 max-w-3xl">
+    <div class="section-divider"><span class="ornament">Core Vocabulary</span></div>
+
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <div class="smallcaps">Words to Master</div>
+        <div class="flex items-baseline gap-3 mt-2">
+          <span id="vocab-count" class="stat-num">12</span>
+          <span class="cn text-base" style="color:var(--ink-3)">个核心词汇</span>
+        </div>
+      </div>
+      <div class="meta-line hidden sm:block">点击文中高亮词查看释义 · Click highlighted words</div>
+    </div>
+
+    <div class="vocab-card p-8">
+      <div class="flex gap-3 mb-8">
+        <input id="new-word-input" type="text" placeholder="输入新单词 / Add a new word…" class="input-field cn" onkeydown="if(event.key==='Enter') addNewWord()">
+        <button onclick="addNewWord()" class="btn-primary cn">
+          <i class="fa-solid fa-plus mr-1.5"></i> 添加到词汇表
+        </button>
+      </div>
+
+      <div id="vocab-container"></div>
+    </div>
+  </section>
+
+  <footer class="article-footer max-w-3xl">
+    <div class="red-rule"></div>
+  </footer>
+
+  </div>
+
+  <div class="news-reader" data-news-panel="ferrari-luce-jony-ive-ev" data-audio-slug="ferrari-luce-jony-ive-ev" hidden>
+
+  <section class="max-w-3xl">
+    <div class="kicker"><span class="kicker-rule"></span> Transportation · Ferrari's first EV</div>
+
+    <h1 class="hero-en mt-6">
+      How Ferrari <em>Bungled</em><br>
+      the Design of its First <em>EV</em>
+    </h1>
+
+    <h2 class="hero-cn cn">法拉利如何搞砸了首款电动车的设计</h2>
+
+    <p class="standfirst">
+      The Ferrari Luce has been greeted by instantaneous backlash, as design experts question many of the brand's design choices.
+    </p>
+
+    <div class="byline">
+      <span class="smallcaps">来源</span>
+      <span class="dot"></span>
+      <a href="https://www.theverge.com/transportation/939226/ferrari-luce-design-terrible-ev-jony-ive-apple" target="_blank" rel="noopener noreferrer">The Verge 原文链接</a>
+    </div>
+  </section>
+
+  <article class="mt-16 max-w-3xl space-y-12">
+
+    <div class="article-block">
+      <p class="article-text">
+        For nearly 80 years, Ferrari occupied a unique cultural space where its cars were <span class="vocab-highlight" data-word="aspirational">aspirational</span>, even for people who resented those who could afford them. The price, the exclusivity, and the opacity of the buying process allowed Ferrari to sail above ordinary criticism. You might not be able to afford one, but you still wanted one.
+      </p>
+      <p class="chinese cn">
+        近 80 年来，法拉利一直占据着一种独特的文化位置：即使有人反感那些买得起它的人，也仍会把它的车视为<span class="chinese-highlight">梦想之物</span>。高昂的价格、稀缺性，以及不透明的购买流程，让法拉利长期游离在普通批评之外。你也许买不起一辆，但你仍然想拥有一辆。
+      </p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">
+        With the launch of the all-electric Luce this week, however, the company fell down to earth, drawing the ire of the internet in the form of <span class="vocab-highlight" data-word="derision">derision</span>, mocking memes, and AI slop. People compared it to a vacuum, a Magic Mouse, and, most insultingly, a Nissan Leaf.
+      </p>
+      <p class="chinese cn">
+        然而，随着本周纯电动车 Luce 的发布，这家公司突然跌回现实，招来了互联网的<span class="chinese-highlight">嘲讽</span>、恶搞 meme 和“AI 垃圾感”评价。人们把它比作吸尘器、苹果 Magic Mouse，最伤人的说法则是：它像一辆日产 Leaf。
+      </p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">
+        The Luce has arrived in a moment where wealth inequality and corporate excess have rarely been this visible or this resented. In that environment, a car that costs more than most people earn in a decade, yet looks like something bland and mass market, was always going to land hard. Ferrari has always sold desire across class lines. The $640,000-plus Luce <span class="vocab-highlight" data-word="homogenize">homogenizes</span> the aesthetic while keeping the Ferrari price, enraging loyalists and fans alike.
+      </p>
+      <p class="chinese cn">
+        Luce 出现的时刻，正是财富不平等和企业过度扩张前所未有地显眼、也前所未有地惹人反感的时候。在这样的环境里，一辆售价超过多数人十年收入、外观却像平淡量产车的汽车，本来就很难被温柔对待。法拉利一直跨越阶层出售欲望；而 64 万美元以上的 Luce 保留了法拉利价格，却把审美做得<span class="chinese-highlight">趋同化</span>，这激怒了忠实车主和普通粉丝。
+      </p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">&ldquo;The reaction illustrates how intrinsically the <span class="vocab-highlight" data-word="brand identity">brand identity</span>, expectations, and design are tied together,&rdquo; Derek Jenkins, the SVP of Design and Brand at Lucid, told The Verge. &ldquo;I can see a couple of things in the exterior design that still reference the brand. The taillights for one, the red color option, and finally, the logo. Everything else — proportions, lack of visual agility, even the expression of performance — is missing from the exterior. The face of the car isn't identifiable... It's a mismatch with the brand.&rdquo;</p>
+      <p class="chinese cn">Lucid 设计与品牌高级副总裁 Derek Jenkins 告诉 The Verge：“这种反应说明，<span class="chinese-highlight">品牌身份</span>、用户期待和设计之间有多么内在地绑定在一起。我能在外观上看到几个仍然指向品牌的元素，比如尾灯、红色车漆选项，当然还有车标。但除此之外，比例、视觉灵动感，甚至性能表达都从外观中消失了。车头没有辨识度……这和品牌不匹配。”</p>
+    </div>
+
+    <div class="article-block quote-block">
+      <p class="article-text">&ldquo;The face of the car isn't identifiable... It's a mismatch with the brand.&rdquo; — Derek Jenkins, SVP of Design and Brand at Lucid</p>
+      <p class="chinese cn">“车头没有辨识度……这和品牌不匹配。”——Derek Jenkins，Lucid 设计与品牌高级副总裁</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">The vehicle was designed in partnership with famed Apple designers Jony Ive and Marc Newson, through their firm LoveFrom, and boasts four motors, 1,035 horsepower, and around 500 km of electric range. Ive has been notoriously critical of car designers in the past, saying that he found some modern looks &ldquo;shocking,&rdquo; but recently admitted that he was surprised by how difficult it was to design a car.</p>
+      <p class="chinese cn">这款车由知名苹果设计师 Jony Ive 和 Marc Newson 通过他们的公司 LoveFrom 参与设计，配备四台电机、1,035 马力，以及约 500 公里的续航。Ive 过去曾以严厉批评汽车设计师而出名，称某些现代汽车外观“令人震惊”，但他最近也承认，自己没想到设计一辆车会如此困难。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">The Luce is the longest Ferrari ever built, eschewing the brand's traditional sharp, aggressive lines for a more sweeping, <span class="vocab-highlight" data-word="aerodynamic">aerodynamic</span> profile. It's also Ferrari's first five-seater, with a low <span class="vocab-highlight" data-word="stance">stance</span> that almost makes it seem like a hatchback. It looks as though its sleek, dark &ldquo;glass house&rdquo; cabin is nested inside a separate, chunkier aluminum shell. And instead of a traditional grille, it features an S-duct swoop that drops down. It's baffling to look at.</p>
+      <p class="chinese cn">Luce 是法拉利有史以来最长的车型，它放弃了品牌传统中锋利、进攻性的线条，转向更流畅、更强调<span class="chinese-highlight">空气动力学</span>的轮廓。它也是法拉利第一款五座车，低趴<span class="chinese-highlight">姿态</span>甚至让它看起来有点像掀背车。它光滑深色的“玻璃房”座舱仿佛被嵌在另一层更厚重的铝制外壳里；车头没有传统格栅，而是一个向下延伸的 S-duct 导流造型。整体看起来令人困惑。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">As Raphael Zammit, chair of transportation design at the College for Creative Studies in Michigan, explained, industrial design and automotive design are two very different disciplines, and the skills from one do not consistently translate to the other. Ive's Apple iPhone design made the physical phone disappear, Zammit said, and was &ldquo;100 percent appropriate for a digital communication device that you hold in your hand.&rdquo; But a Ferrari is not an iPhone.</p>
+      <p class="chinese cn">密歇根创意研究学院交通工具设计系主任 Raphael Zammit 解释说，工业设计和汽车设计是两种非常不同的学科，一方的能力并不总能迁移到另一方。Zammit 说，Ive 的苹果 iPhone 设计让实体手机“消失”，这对一个握在手里的数字通信设备来说“百分之百合适”。但法拉利不是 iPhone。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Ferrari's decision to hire LoveFrom was a choice with a built-in logic, Zammit argued. &ldquo;Ive is a brand,&rdquo; he said. &ldquo;When you hire Brad Pitt, you expect to get Brad Pitt.&rdquo; The interior of the Luce has been praised for its blend of analog and digital touchpoints. But the interior language would likely be much more at home in a small premium city car, he added, such as a Fiat 500 or a Cinquecento, not a supercar that retails for half a million dollars.</p>
+      <p class="chinese cn">Zammit 认为，法拉利聘请 LoveFrom 本身有其内在逻辑。“Ive 本身就是一个品牌，”他说，“当你雇用 Brad Pitt，你期待得到的就是 Brad Pitt。”Luce 的内饰因融合模拟与数字触点而受到赞扬。但他补充说，这种内饰语言更适合小型高端城市车，比如 Fiat 500 或 Cinquecento，而不是一辆售价 50 万美元的超级跑车。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Ferrari shares fell about 8 percent in Milan and 5.3 percent in New York the day after the unveiling, and hovered around that level through Wednesday, with analysts citing a mix of &ldquo;design hate&rdquo; and investor concerns about R&amp;D costs and return on investment. Despite the public <span class="vocab-highlight" data-word="backlash">backlash</span>, Ferrari CEO Benedetto Vigna said on Thursday that &ldquo;interest was strong&rdquo; in the Luce, especially with new customers, and the stock has since risen back to the prelaunch levels.</p>
+      <p class="chinese cn">发布后的第二天，法拉利在米兰股价下跌约 8%，在纽约下跌 5.3%，并在周三前后维持在这一水平。分析师认为原因包括“设计被讨厌”，以及投资者对研发成本和投资回报的担忧。尽管舆论<span class="chinese-highlight">反弹</span>明显，法拉利 CEO Benedetto Vigna 周四表示，市场对 Luce 的“兴趣很强”，尤其是新客户；此后股价已回升至发布前水平。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Stephanie Brinley, automotive analyst at S&amp;P Global Mobility, said that the blowback has intensified as a direct result of the economic and political moment we're living through. &ldquo;It might end up being a blip on Ferrari's overall history,&rdquo; she continued, &ldquo;I don't see why this particular vehicle needs to destroy the Ferrari legacy.&rdquo;</p>
+      <p class="chinese cn">S&amp;P Global Mobility 汽车分析师 Stephanie Brinley 表示，这场反弹之所以加剧，直接源于我们正在经历的经济与政治时刻。她继续说：“它最终可能只是法拉利整体历史中的一个小波动。我不认为这款车必然会摧毁法拉利的遗产。”</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text"><strong>A moment of collective trolling</strong></p>
+      <p class="chinese cn"><strong>一个集体恶搞的时刻。</strong></p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">The design criticism has come from far and wide, including harsh words from Italian officials and even the former president and chairman of Ferrari. It's even spread beyond automotive media and Wall Street, landing on general culture sites, political accounts, and feeds with no particular interest in cars.</p>
+      <p class="chinese cn">对设计的批评来自四面八方，包括意大利官员的严厉言论，甚至还有法拉利前总裁兼董事长的批评。它甚至已经超出汽车媒体和华尔街的范围，进入大众文化网站、政治账号，以及原本对汽车并无特别兴趣的信息流。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Luca di Montezemolo, the former president, said the Luce risks &ldquo;destroying a myth,&rdquo; adding: &ldquo;I hope they at least take the <span class="vocab-highlight" data-word="prancing horse">prancing horse</span> from that car.&rdquo; Italian Transportation Minister Matteo Salvini echoed the sentiment. Ferrari declined to comment on either.</p>
+      <p class="chinese cn">前总裁 Luca di Montezemolo 表示，Luce 有“摧毁一个神话”的风险，并补充说：“我希望他们至少把<span class="chinese-highlight">跃马标志</span>从那辆车上拿掉。”意大利交通部长 Matteo Salvini 也表达了类似看法。法拉利拒绝对两者置评。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Competitors in the supercar world were also watching. Lamborghini CEO Stephan Winkelmann, without commenting directly on the Luce, said his company's decision to cancel its EV plans and focus on plug-in hybrids was &ldquo;the right way to go,&rdquo; adding that innovation should not be made for its own sake or forced on customers.</p>
+      <p class="chinese cn">超跑领域的竞争对手也在观察。兰博基尼 CEO Stephan Winkelmann 没有直接评论 Luce，但他说公司取消纯电计划、转而专注插电式混合动力是“正确方向”，并补充说，创新不应为了创新而创新，也不应强加给客户。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Among automotive designers, the criticism is no less blunt. &ldquo;It is brutally bland, actually. It really does look as if it was designed by AI. It's like a mathematical averaging of many different themes,&rdquo; Zammit said, adding that, &ldquo;it's almost alarmingly <span class="vocab-highlight" data-word="vacant of identity">vacant of identity</span>.&rdquo;</p>
+      <p class="chinese cn">在汽车设计师群体中，批评同样直接。Zammit 说：“它实际上平淡得残酷。它真的像是由 AI 设计出来的，像是许多不同主题的数学平均值。”他补充说，它“几乎令人警觉地<span class="chinese-highlight">缺乏身份感</span>”。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">There's a lot that critics hate about the Luce. The stance and proportions, for example, are all wrong for Ferrari, which is known for its <span class="vocab-highlight" data-word="lithe">lithe</span> and aggressive lines. The front end of the vehicle is generic, even with the air vent over the front glass.</p>
+      <p class="chinese cn">批评者讨厌 Luce 的地方很多。比如车身姿态和比例，对以<span class="chinese-highlight">轻盈</span>、进攻性线条闻名的法拉利来说都不对。即使前挡风玻璃上方有通风口，车头仍显得非常普通。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">&ldquo;It's not a sports car, it's not a city electric, and it's not really luxury,&rdquo; Zammit said. &ldquo;It seems like they might have gotten a little bit snowed or oversold by LoveFrom... The strategy is very muddy, because of what they're doing versus what they're saying on different parts of the vehicle.&rdquo;</p>
+      <p class="chinese cn">Zammit 说：“它不是跑车，不是城市电动车，也并不真正豪华。感觉他们可能有点被 LoveFrom 说服过头了……策略非常混乱，因为他们在车辆不同部分所做的事，与他们所说的话并不一致。”</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text"><strong>A play for China?</strong></p>
+      <p class="chinese cn"><strong>是为了中国市场吗？</strong></p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Ferrari may have an ulterior motive in its design choices. The company has been open about wanting to expand its presence in China, where electric vehicles are mainstream, large gasoline-powered cars face significant taxation, and many Chinese vehicles look a lot like Ferraris.</p>
+      <p class="chinese cn">法拉利在设计选择上或许另有动机。公司一直公开表示希望扩大在中国的存在感。在中国，电动车已经成为主流，大型燃油车面临较高税负，而许多中国车型看起来很像法拉利。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Chinese buyers have typically accounted for around 10 percent of Ferrari's overall sales, but that share has declined in recent years. The Luce, with its large glassy surfaces, minimal/maximal interior, and polarizing exterior, reads less like a Ferrari and more like something designed to compete in a market where China's domestic brands are launching <span class="vocab-highlight" data-word="ultraluxury">ultraluxury</span> EVs at volume.</p>
+      <p class="chinese cn">中国买家通常约占法拉利总销量的 10%，但近年来这一比例有所下降。Luce 拥有大面积玻璃表面、极简又极繁的内饰，以及充满争议的外观，它读起来不像一辆法拉利，更像是为一个中国本土品牌正批量推出<span class="chinese-highlight">超豪华</span>电动车的市场而设计的竞争产品。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">If that calculation sounds familiar, it should. BMW spent the better part of a decade enlarging its kidney grilles to proportions that drew near-universal mockery in Western markets.</p>
+      <p class="chinese cn">如果这种盘算听起来很熟悉，那并不奇怪。宝马花了近十年时间，把双肾格栅放大到在西方市场几乎被普遍嘲笑的比例。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">BMW has since moved on with its Neue Klasse design language, a global reset intended to resonate everywhere rather than optimize for one market. The lesson most automakers learned from BMW's move was that when a brand built on a specific emotional identity makes an abrupt pivot toward a different buyer, the original audience notices immediately and tends to take it personally.</p>
+      <p class="chinese cn">宝马后来转向 Neue Klasse 设计语言，这是一种全球重置，意在面向所有市场产生共鸣，而不是只为某一个市场优化。多数车企从宝马身上学到的教训是：当一个建立在特定情感身份上的品牌突然转向另一类买家，原本的受众会立刻注意到，而且往往会把它视为一种冒犯。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Benedetto Vigna, a former semiconductor industry executive, took over Ferrari in 2021, and has described the Luce as a &ldquo;<span class="vocab-highlight" data-word="leapfrog moment">Leapfrog moment</span>&rdquo; in the company's history, saying he considers himself fortunate to be leading through it. That conviction may be well-placed on the engineering side, but whether the physical design lives up to the Ferrari badge is another question.</p>
+      <p class="chinese cn">前半导体行业高管 Benedetto Vigna 于 2021 年接管法拉利，并将 Luce 描述为公司历史上的“<span class="chinese-highlight">跨越式时刻</span>”，称自己很幸运能领导公司经历这一阶段。这种信念在工程层面也许站得住脚，但实体设计是否配得上法拉利车标，则是另一回事。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text"><strong>An anonymized Ferrari</strong></p>
+      <p class="chinese cn"><strong>一辆匿名化的法拉利。</strong></p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Ferrari's whole cultural function, as a signal, a provocation, an investment, depends on being unmistakably true to itself, its heritage, and, most importantly, its design.</p>
+      <p class="chinese cn">法拉利作为一种信号、一种挑衅、一项投资，其全部文化功能都依赖于它必须明确忠于自身、忠于传统，最重要的是忠于它的设计。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">When you remove the engine, the most emotionally resonant element in Ferrari's history, you have to replace it with something compelling, Zammit points out, and the Luce's design doesn't do that.</p>
+      <p class="chinese cn">Zammit 指出，当你移除发动机这个法拉利历史中最能激发情感共鸣的元素时，你必须用某种同样有说服力的东西取代它，而 Luce 的设计没有做到这一点。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Despite the design flop, Zammit was careful to separate it from the brand's long-term health, calling it &ldquo;a bit of a stumble, both in concept and in execution,&rdquo; but said Ferrari had too strong a record to be permanently damaged.</p>
+      <p class="chinese cn">尽管设计翻车，Zammit 仍谨慎地将其与品牌长期健康区分开来。他称其为“在概念和执行上都有点踉跄”，但也表示法拉利的历史记录太强，不会因此受到永久性伤害。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">One thing is clear in the face of all the negative coverage: In trying to signal a new era for Ferrari, the Luce has made everyone suddenly more interested in the old one.</p>
+      <p class="chinese cn">面对所有负面报道，有一点很清楚：Luce 原本试图标志法拉利进入新时代，却让所有人突然对旧时代更感兴趣了。</p>
+    </div>
+
+  </article>
+
+  <section class="mt-20 max-w-3xl">
+    <div class="section-divider"><span class="ornament">Core Vocabulary</span></div>
+
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <div class="smallcaps">Words to Master</div>
+        <div class="flex items-baseline gap-3 mt-2">
+          <span class="stat-num">12</span>
+          <span class="cn text-base" style="color:var(--ink-3)">个核心词汇</span>
+        </div>
+      </div>
+      <div class="meta-line hidden sm:block">点击文中高亮词查看释义 · Click highlighted words</div>
+    </div>
+
+    <div class="vocab-card p-8">
+      <div class="flex gap-3 mb-8">
+        <input id="new-word-input" type="text" placeholder="输入新单词 / Add a new word…" class="input-field cn" onkeydown="if(event.key==='Enter') addNewWord()">
+        <button onclick="addNewWord()" class="btn-primary cn">
+          <i class="fa-solid fa-plus mr-1.5"></i> 添加到词汇表
+        </button>
+      </div>
+
+      <div data-static-vocab-container="legacy"></div>
+    </div>
+  </section>
+
+  <footer class="article-footer max-w-3xl">
+    <div class="red-rule"></div>
+  </footer>
+
+  </div>
+
+  <div class="news-reader" data-news-panel="paul-graham-ai-writing" data-audio-slug="paul-graham-ai-writing" hidden>
+
+  <section class="max-w-3xl">
+    <div class="kicker"><span class="kicker-rule"></span> Artificial Intelligence · Startup communication</div>
+
+    <h1 class="hero-en mt-6">
+      Don't Use <em>AI</em><br>
+      When Emailing <em>Paul Graham</em>
+    </h1>
+
+    <h2 class="hero-cn cn">给 Paul Graham 发邮件时，别用 AI 代写</h2>
+
+    <p class="standfirst">
+      Y Combinator cofounder Paul Graham says overly polished founder emails now read like AI, and once he notices, he tends to stop reading.
+    </p>
+
+    <div class="byline">
+      <span class="smallcaps">来源</span>
+      <span class="dot"></span>
+      <a href="https://www.businessinsider.com/paul-graham-email-y-combinator-dont-use-ai-writing-2026-5" target="_blank" rel="noopener noreferrer">Business Insider 原文链接</a>
+    </div>
+  </section>
+
+  <article class="mt-16 max-w-3xl space-y-12">
+
+    <div class="article-block">
+      <p class="article-text">Dear founders: your emails read different. Is it AI?</p>
+      <p class="chinese cn">各位创始人：你们的邮件读起来不一样了。是 AI 写的吗？</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Paul Graham is a <span class="vocab-highlight" data-word="titan" data-phonetic="/ˈtaɪtn/" data-meaning="巨头，重要人物">titan</span> of the startup space. He cofounded Y Combinator, Silicon Valley's hottest startup accelerator. He also coined &ldquo;founder mode,&rdquo; the management philosophy that's swept tech in recent years.</p>
+      <p class="chinese cn">Paul Graham 是创业圈的<span class="chinese-highlight">重要人物</span>。他共同创立了 Y Combinator，这家硅谷最炙手可热的创业加速器。他还提出了“founder mode”这个概念，近几年这套管理哲学席卷了科技行业。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">He's noticed a trend that worries him: people using AI to write their <span class="vocab-highlight" data-word="pitches" data-phonetic="/ˈpɪtʃɪz/" data-meaning="推介，创业项目陈述">pitches</span>.</p>
+      <p class="chinese cn">他注意到一个令他担忧的趋势：人们开始用 AI 来写自己的<span class="chinese-highlight">项目推介</span>。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">&ldquo;A lot of the emails I get from founders are now written in a <span class="vocab-highlight" data-word="hard-hitting" data-phonetic="/ˌhɑːrd ˈhɪtɪŋ/" data-meaning="强硬有力的，冲击力强的">hard-hitting</span> journalistic style,&rdquo; Graham wrote on X. &ldquo;I know they're written by AI, because no founder ever wrote this way before.&rdquo;</p>
+      <p class="chinese cn">Graham 在 X 上写道：“我现在收到的很多创始人邮件，都写成一种<span class="chinese-highlight">强冲击力</span>的新闻报道风格。我知道这些是 AI 写的，因为以前没有创始人会这样写。”</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Once he realizes the email is AI-generated, Graham wrote he gives up: &ldquo;It feels like being lied to, and who would stand for that?&rdquo;</p>
+      <p class="chinese cn">Graham 写道，一旦他意识到邮件是 AI 生成的，他就会放弃继续看：“这感觉像是在被欺骗，谁会忍受这种事呢？”</p>
+    </div>
+
+    <div class="article-block quote-block">
+      <p class="article-text">&ldquo;A lot of the emails I get from founders are now written in a hard-hitting journalistic style. I know they're written by AI, because no founder ever wrote this way before. And once you realize something is written by AI, it's hard not to ignore it.&rdquo;</p>
+      <p class="chinese cn">“我现在收到的很多创始人邮件都写成强冲击力的新闻报道风格。我知道它们是 AI 写的，因为以前没有创始人会这样写。一旦你意识到某样东西是 AI 写的，就很难不忽略它。”</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Graham is not an AI pessimist. One commenter pulled a post from April in which he wrote that AI gave hardworking founders the &ldquo;growth they deserve.&rdquo; The commenter called it &ldquo;<span class="vocab-highlight" data-word="cognitive dissonance" data-phonetic="/ˈkɑːɡnətɪv ˈdɪsənəns/" data-meaning="认知失调">cognitive dissonance</span>.&rdquo;</p>
+      <p class="chinese cn">Graham 并不是 AI 悲观主义者。有评论者翻出他 4 月的一篇帖子，当时他说 AI 给了勤奋的创始人“他们应得的增长”。这位评论者称这是“<span class="chinese-highlight">认知失调</span>”。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Graham responded: &ldquo;You're supposed to use it, but in the right way. Like any technology.&rdquo;</p>
+      <p class="chinese cn">Graham 回应说：“你当然应该使用它，但要用对方式。任何技术都是如此。”</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">The startup investor has long been on the lookout for signs of AI-generated writing. In 2024, he wrote that he looked for the word &ldquo;<span class="vocab-highlight" data-word="delve" data-phonetic="/delv/" data-meaning="深入探究">delve</span>&rdquo; as a sign of ChatGPT's influence.</p>
+      <p class="chinese cn">这位创业投资人长期都在留意 AI 写作的痕迹。2024 年，他曾写道，他会把“<span class="chinese-highlight">delve</span>”这个词视为 ChatGPT 影响的迹象。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Graham's post sparked a debate — and got support from those building the large language models. Google DeepMind researcher Nataniel Ruiz wrote: &ldquo;It's so true that it's hard not to ignore something written purely by AI.&rdquo;</p>
+      <p class="chinese cn">Graham 的帖子引发了争论，也得到了大语言模型开发者的支持。Google DeepMind 研究员 Nataniel Ruiz 写道：“这太真实了，纯 AI 写出来的东西确实很难不被忽略。”</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">In response to Graham's post, Boom Supersonic CEO Blake Scholl added that AI writing is &ldquo;usually a bad idea.&rdquo; He recommended that people do their own writing before asking AI for feedback.</p>
+      <p class="chinese cn">Boom Supersonic CEO Blake Scholl 回应 Graham 的帖子说，AI 写作“通常不是个好主意”。他建议人们先自己写，再请 AI 提反馈。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Serial entrepreneur Zain Manji wrote that, when he writes, he will &ldquo;turn on my AI <span class="vocab-highlight" data-word="slop radar" data-phonetic="/slɑːp ˈreɪdɑːr/" data-meaning="识别 AI 垃圾感的雷达">slop radar</span> and check myself.&rdquo;</p>
+      <p class="chinese cn">连续创业者 Zain Manji 写道，当他写东西时，会“打开自己的 <span class="chinese-highlight">AI 垃圾感雷达</span>，检查自己”。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Former Microsoft Windows boss Steven Sinofsky commented that it reminded him of when he first used a &ldquo;letter quality&rdquo; printer as a freshman in college. His professors had mixed reactions.</p>
+      <p class="chinese cn">前微软 Windows 负责人 Steven Sinofsky 评论说，这让他想起自己大学一年级第一次使用“letter quality”打印机的经历。当时他的教授们反应不一。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">&ldquo;Many thought the 'format' distracted from the content and was some sort of <span class="vocab-highlight" data-word="ruse" data-phonetic="/ruːz/" data-meaning="计策，花招">ruse</span> on my part,&rdquo; Sinofsky wrote. &ldquo;Others thought the formatting caused them to look more carefully at the work as a result. Still others told me to use a typewriter like a normal student.&rdquo;</p>
+      <p class="chinese cn">Sinofsky 写道：“很多人认为这种‘格式’分散了对内容的注意力，像是我耍的某种<span class="chinese-highlight">花招</span>。另一些人则认为这种格式反而让他们更仔细地看我的作品。还有人告诉我，像正常学生一样用打字机。”</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Then, the Macintosh computer premiered and &ldquo;everything changed,&rdquo; Sinofsky wrote. He wondered what that Macintosh moment would be for AI writing.</p>
+      <p class="chinese cn">Sinofsky 写道，后来 Macintosh 电脑发布，“一切都变了”。他好奇，AI 写作的 Macintosh 时刻会是什么。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Graham is one of many leaders turning up their noses at AI-generated writing across industries. While Graham looks down upon AI pitches, HR managers contend with AI cover letters and <span class="vocab-highlight" data-word="résumés" data-phonetic="/ˈrezʊmeɪz/" data-meaning="简历">résumés</span>. Sometimes it works out; other times, it can get your application tossed in the trash.</p>
+      <p class="chinese cn">Graham 只是各行业中对 AI 生成写作<span class="chinese-highlight">嗤之以鼻</span>的众多领导者之一。Graham 看不上 AI 写的创业推介，而 HR 经理则要面对 AI 写的求职信和<span class="chinese-highlight">简历</span>。有时这能奏效；有时它会让你的申请直接被扔进垃圾桶。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Being overly polished could hurt a founder's chances. In April, Instacart cofounder Max Mullen said that he looked for founders with dirty white sneakers. These founders aren't focused on their appearance — a sign that they'll work around the clock.</p>
+      <p class="chinese cn">过度润色可能会伤害创始人的机会。4 月，Instacart 联合创始人 Max Mullen 说，他会寻找穿脏白球鞋的创始人。这类创始人不太在意外表，这表明他们会夜以继日地工作。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">One commenter asked Graham why the AI-written email wouldn't be a good sign. It could be seen as a signal that they're &ldquo;AI native&rdquo; — the same reason techies are flaunting their high token bills.</p>
+      <p class="chinese cn">有评论者问 Graham，为什么 AI 写的邮件不能是一个好信号。它也可以被视为他们“AI 原生”的信号，就像技术圈人士炫耀自己高额 token 账单一样。</p>
+    </div>
+
+    <div class="article-block">
+      <p class="article-text">Graham wasn't impressed. &ldquo;Any teenager can do that,&rdquo; he wrote.</p>
+      <p class="chinese cn">Graham 并不买账。他写道：“任何青少年都能做到。”</p>
+    </div>
+
+  </article>
+
+  <section class="mt-20 max-w-3xl">
+    <div class="section-divider"><span class="ornament">Core Vocabulary</span></div>
+
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <div class="smallcaps">Words to Master</div>
+        <div class="flex items-baseline gap-3 mt-2">
+          <span class="stat-num">9</span>
+          <span class="cn text-base" style="color:var(--ink-3)">个核心词汇</span>
+        </div>
+      </div>
+      <div class="meta-line hidden sm:block">点击文中高亮词查看释义 · Click highlighted words</div>
+    </div>
+
+    <div class="vocab-card p-8">
+      <div class="vocab-row" data-word="titan"><div><div class="vocab-word">titan</div><div class="vocab-phonetic">/ˈtaɪtn/</div></div><div class="vocab-meta"><div class="vocab-meaning cn">巨头，重要人物</div><div class="vocab-example">&ldquo;Paul Graham is a titan of the startup space.&rdquo;</div><div class="vocab-example-zh cn">Paul Graham 是创业圈的重要人物。</div></div><div><button class="icon-btn" title="Edge TTS 朗读 / Listen" onclick='speak({audio:"audio/paul-graham-ai-writing/titan.mp3"}, this)'><i class="fa-solid fa-volume-high text-xs"></i></button></div></div>
+      <div class="vocab-row" data-word="pitches"><div><div class="vocab-word">pitches</div><div class="vocab-phonetic">/ˈpɪtʃɪz/</div></div><div class="vocab-meta"><div class="vocab-meaning cn">推介，创业项目陈述</div><div class="vocab-example">&ldquo;Founders often send investors short pitches.&rdquo;</div><div class="vocab-example-zh cn">创始人经常向投资人发送简短项目推介。</div></div><div><button class="icon-btn" title="Edge TTS 朗读 / Listen" onclick='speak({audio:"audio/paul-graham-ai-writing/pitches.mp3"}, this)'><i class="fa-solid fa-volume-high text-xs"></i></button></div></div>
+      <div class="vocab-row" data-word="hard-hitting"><div><div class="vocab-word">hard-hitting</div><div class="vocab-phonetic">/ˌhɑːrd ˈhɪtɪŋ/</div></div><div class="vocab-meta"><div class="vocab-meaning cn">强硬有力的，冲击力强的</div><div class="vocab-example">&ldquo;The email sounded like a hard-hitting article.&rdquo;</div><div class="vocab-example-zh cn">那封邮件听起来像一篇冲击力很强的文章。</div></div><div><button class="icon-btn" title="Edge TTS 朗读 / Listen" onclick='speak({audio:"audio/paul-graham-ai-writing/hard-hitting.mp3"}, this)'><i class="fa-solid fa-volume-high text-xs"></i></button></div></div>
+      <div class="vocab-row" data-word="cognitive dissonance"><div><div class="vocab-word">cognitive dissonance</div><div class="vocab-phonetic">/ˈkɑːɡnətɪv ˈdɪsənəns/</div></div><div class="vocab-meta"><div class="vocab-meaning cn">认知失调</div><div class="vocab-example">&ldquo;The commenter called the position cognitive dissonance.&rdquo;</div><div class="vocab-example-zh cn">评论者称这种立场是认知失调。</div></div><div><button class="icon-btn" title="Edge TTS 朗读 / Listen" onclick='speak({audio:"audio/paul-graham-ai-writing/cognitive-dissonance.mp3"}, this)'><i class="fa-solid fa-volume-high text-xs"></i></button></div></div>
+      <div class="vocab-row" data-word="delve"><div><div class="vocab-word">delve</div><div class="vocab-phonetic">/delv/</div></div><div class="vocab-meta"><div class="vocab-meaning cn">深入探究</div><div class="vocab-example">&ldquo;Some readers associate delve with AI-generated prose.&rdquo;</div><div class="vocab-example-zh cn">一些读者会把 delve 和 AI 生成文风联系起来。</div></div><div><button class="icon-btn" title="Edge TTS 朗读 / Listen" onclick='speak({audio:"audio/paul-graham-ai-writing/delve.mp3"}, this)'><i class="fa-solid fa-volume-high text-xs"></i></button></div></div>
+      <div class="vocab-row" data-word="slop radar"><div><div class="vocab-word">slop radar</div><div class="vocab-phonetic">/slɑːp ˈreɪdɑːr/</div></div><div class="vocab-meta"><div class="vocab-meaning cn">识别 AI 垃圾感的雷达</div><div class="vocab-example">&ldquo;He said he turns on his AI slop radar before publishing.&rdquo;</div><div class="vocab-example-zh cn">他说自己发布前会打开 AI 垃圾感雷达。</div></div><div><button class="icon-btn" title="Edge TTS 朗读 / Listen" onclick='speak({audio:"audio/paul-graham-ai-writing/slop-radar.mp3"}, this)'><i class="fa-solid fa-volume-high text-xs"></i></button></div></div>
+      <div class="vocab-row" data-word="ruse"><div><div class="vocab-word">ruse</div><div class="vocab-phonetic">/ruːz/</div></div><div class="vocab-meta"><div class="vocab-meaning cn">计策，花招</div><div class="vocab-example">&ldquo;Some professors thought the formatting was a ruse.&rdquo;</div><div class="vocab-example-zh cn">一些教授认为这种格式是一种花招。</div></div><div><button class="icon-btn" title="Edge TTS 朗读 / Listen" onclick='speak({audio:"audio/paul-graham-ai-writing/ruse.mp3"}, this)'><i class="fa-solid fa-volume-high text-xs"></i></button></div></div>
+      <div class="vocab-row" data-word="résumés"><div><div class="vocab-word">résumés</div><div class="vocab-phonetic">/ˈrezʊmeɪz/</div></div><div class="vocab-meta"><div class="vocab-meaning cn">简历</div><div class="vocab-example">&ldquo;HR managers now see AI-written résumés.&rdquo;</div><div class="vocab-example-zh cn">HR 经理现在会看到 AI 写的简历。</div></div><div><button class="icon-btn" title="Edge TTS 朗读 / Listen" onclick='speak({audio:"audio/paul-graham-ai-writing/resumes.mp3"}, this)'><i class="fa-solid fa-volume-high text-xs"></i></button></div></div>
+      <div class="vocab-row" data-word="AI native"><div><div class="vocab-word">AI native</div><div class="vocab-phonetic">/ˌeɪ ˈaɪ ˈneɪtɪv/</div></div><div class="vocab-meta"><div class="vocab-meaning cn">AI 原生的</div><div class="vocab-example">&ldquo;The email could signal an AI native founder.&rdquo;</div><div class="vocab-example-zh cn">这封邮件可能表明创始人是 AI 原生型。</div></div><div><button class="icon-btn" title="Edge TTS 朗读 / Listen" onclick='speak({audio:"audio/paul-graham-ai-writing/ai-native.mp3"}, this)'><i class="fa-solid fa-volume-high text-xs"></i></button></div></div>
+    </div>
+  </section>
+
+  <footer class="article-footer max-w-3xl">
+    <div class="red-rule"></div>
+  </footer>
+
+  </div>
+</div>
+
+</main>
+
+<button id="selection-vocab-popover" class="selection-vocab-popover" type="button">
+  <i class="fa-solid fa-plus text-xs"></i>
+  <span>加入词汇表</span>
+</button>
+
+<script>
+  let vocabularyData = [
+      {
+          "word": "deepfaked",
+          "phonetic": "/ˈdiːpfeɪkt/",
+          "meaning": "用深度伪造技术生成或修改",
+          "example": "I deepfaked my kid's stuffed animal to make it look like his plush deer was on vacation.",
+          "exampleZh": "我用深度伪造技术处理了我孩子的毛绒玩具，让它看起来像是在度假。",
+          "audio": "audio/gemini-omni-hands-on-deepfake-ai-video/deepfaked.mp3"
+      },
+      {
+          "word": "generative",
+          "phonetic": "/ˈdʒenərətɪv/",
+          "meaning": "生成式的",
+          "example": "Generative AI can create images, video, text, and audio from prompts.",
+          "exampleZh": "生成式 AI 可以根据提示创建图像、视频、文本和音频。",
+          "audio": "audio/gemini-omni-hands-on-deepfake-ai-video/generative.mp3"
+      },
+      {
+          "word": "slop",
+          "phonetic": "/slɑːp/",
+          "meaning": "粗制滥造的内容；低质 AI 内容",
+          "example": "The author wonders where harmless fun ends and full-on slop begins.",
+          "exampleZh": "作者思考无害的娱乐和低质 AI 内容之间的界线在哪里。",
+          "audio": "audio/gemini-omni-hands-on-deepfake-ai-video/slop.mp3"
+      },
+      {
+          "word": "incorporates",
+          "phonetic": "/ɪnˈkɔːrpəreɪts/",
+          "meaning": "融入，包含",
+          "example": "Google claims Omni incorporates more real-world knowledge.",
+          "exampleZh": "Google 声称 Omni 融入了更多现实世界知识。",
+          "audio": "audio/gemini-omni-hands-on-deepfake-ai-video/incorporates.mp3"
+      },
+      {
+          "word": "consistent",
+          "phonetic": "/kənˈsɪstənt/",
+          "meaning": "一致的，稳定的",
+          "example": "Omni can do a better job of keeping characters consistent throughout a video.",
+          "exampleZh": "Omni 能更好地在整段视频中保持角色一致。",
+          "audio": "audio/gemini-omni-hands-on-deepfake-ai-video/consistent.mp3"
+      },
+      {
+          "word": "baffling",
+          "phonetic": "/ˈbæflɪŋ/",
+          "meaning": "令人困惑的",
+          "example": "The results are such a mixed bag they're baffling.",
+          "exampleZh": "结果好坏参半，甚至令人困惑。",
+          "audio": "audio/gemini-omni-hands-on-deepfake-ai-video/baffling.mp3"
+      },
+      {
+          "word": "montage",
+          "phonetic": "/mɑːnˈtɑːʒ/",
+          "meaning": "蒙太奇，组接片段",
+          "example": "Create a montage of Buddy packing for a vacation.",
+          "exampleZh": "制作一个 Buddy 为度假打包的蒙太奇。",
+          "audio": "audio/gemini-omni-hands-on-deepfake-ai-video/montage.mp3"
+      },
+      {
+          "word": "uncanny",
+          "phonetic": "/ʌnˈkæni/",
+          "meaning": "诡异的，似真非真的",
+          "example": "The videos have a vaguely uncanny sense about them.",
+          "exampleZh": "这些视频带有一种隐约的诡异感。",
+          "audio": "audio/gemini-omni-hands-on-deepfake-ai-video/uncanny.mp3"
+      },
+      {
+          "word": "convincing",
+          "phonetic": "/kənˈvɪnsɪŋ/",
+          "meaning": "有说服力的，逼真的",
+          "example": "Aside from little glitches, the deepfake videos are convincing as hell.",
+          "exampleZh": "除了一些小瑕疵，这些深度伪造视频非常逼真。",
+          "audio": "audio/gemini-omni-hands-on-deepfake-ai-video/convincing.mp3"
+      },
+      {
+          "word": "singularity",
+          "phonetic": "/ˌsɪŋɡjəˈlærəti/",
+          "meaning": "奇点",
+          "example": "The author does not think we are at the foothills of the singularity.",
+          "exampleZh": "作者并不认为我们已经处在奇点的山脚下。",
+          "audio": "audio/gemini-omni-hands-on-deepfake-ai-video/singularity.mp3"
+      },
+      {
+          "word": "uncanny valley",
+          "phonetic": "/ʌnˈkæni ˈvæli/",
+          "meaning": "恐怖谷",
+          "example": "We are definitely deep in the uncanny valley.",
+          "exampleZh": "我们肯定已经深入了恐怖谷。",
+          "audio": "audio/gemini-omni-hands-on-deepfake-ai-video/uncanny-valley.mp3"
+      },
+      {
+          "word": "prompt",
+          "phonetic": "/prɑːmpt/",
+          "meaning": "提示词；用提示词引导",
+          "example": "You can use text-based prompts to suggest edits to your videos.",
+          "exampleZh": "你可以使用文本提示来建议修改视频。",
+          "audio": "audio/gemini-omni-hands-on-deepfake-ai-video/prompt.mp3"
+      }
+  ];
+
+  let activeAudio = null;
+  let activeAudioButton = null;
+  let activeAudioCleanup = null;
+  let activeSpokenWords = [];
+  let activeSpokenIndex = -1;
+  let pendingSelectionText = '';
+
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+  }
+
+  function resetActiveAudio() {
+    if (activeAudio) {
+      activeAudio.pause();
+      activeAudio.currentTime = 0;
+    }
+    clearSpokenWordUnderline();
+    if (activeAudioCleanup) {
+      activeAudioCleanup();
+    } else if (activeAudioButton) {
+      activeAudioButton.classList.remove('is-playing');
+      activeAudioButton.innerHTML = '<i class="fa-solid fa-play text-xs"></i><span>Play paragraph</span>';
+    }
+    activeAudio = null;
+    activeAudioButton = null;
+    activeAudioCleanup = null;
+  }
+
+  function clearSpokenWordUnderline() {
+    activeSpokenWords.forEach(word => word.classList.remove('is-speaking'));
+    activeSpokenWords = [];
+    activeSpokenIndex = -1;
+  }
+
+  function speak(item, button) {
+    if (!item || !item.audio) return;
+    resetActiveAudio();
+    const original = button ? button.innerHTML : '';
+    const audio = new Audio(item.audio);
+    activeAudio = audio;
+    activeAudioCleanup = () => {
+      if (button) button.innerHTML = original;
+    };
+    if (button) button.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-xs"></i>';
+    audio.onended = audio.onerror = () => {
+      if (activeAudio === audio) {
+        if (activeAudioCleanup) activeAudioCleanup();
+        activeAudio = null;
+        activeAudioButton = null;
+        activeAudioCleanup = null;
+      }
+    };
+    audio.play().catch(() => {
+      if (activeAudio === audio) {
+        if (activeAudioCleanup) activeAudioCleanup();
+        activeAudio = null;
+        activeAudioButton = null;
+        activeAudioCleanup = null;
+      }
+    });
+  }
+
+  function prepareSpokenWords(paragraph) {
+    if (!paragraph.dataset.spokenPrepared) {
+      const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          return node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        }
+      });
+      const textNodes = [];
+      while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+      textNodes.forEach(node => {
+        const fragment = document.createDocumentFragment();
+        node.nodeValue.split(/(\s+)/).forEach(token => {
+          if (!token) return;
+          if (/\s+/.test(token)) {
+            fragment.appendChild(document.createTextNode(token));
+            return;
+          }
+          const span = document.createElement('span');
+          span.className = 'spoken-word';
+          span.textContent = token;
+          fragment.appendChild(span);
+        });
+        node.parentNode.replaceChild(fragment, node);
+      });
+      paragraph.dataset.spokenPrepared = 'true';
+      makeHighlightsClickable();
+    }
+    return [...paragraph.querySelectorAll('.spoken-word')];
+  }
+
+  function updateSpokenWordUnderline(audio) {
+    if (!activeSpokenWords.length || !Number.isFinite(audio.duration) || audio.duration <= 0) return;
+    const index = Math.min(activeSpokenWords.length - 1, Math.floor((audio.currentTime / audio.duration) * activeSpokenWords.length));
+    if (index === activeSpokenIndex) return;
+    if (activeSpokenWords[activeSpokenIndex]) activeSpokenWords[activeSpokenIndex].classList.remove('is-speaking');
+    activeSpokenWords[index].classList.add('is-speaking');
+    activeSpokenIndex = index;
+  }
+
+  function playParagraphAudio(src, playButton, paragraph, restart = false) {
+    if (activeAudio && activeAudio.dataset && activeAudio.dataset.src === src && !restart) {
+      if (activeAudio.paused) {
+        activeAudio.play();
+        playButton.classList.add('is-playing');
+        playButton.innerHTML = '<i class="fa-solid fa-pause text-xs"></i><span>Pause paragraph</span>';
+      } else {
+        activeAudio.pause();
+        playButton.classList.remove('is-playing');
+        playButton.innerHTML = '<i class="fa-solid fa-play text-xs"></i><span>Resume paragraph</span>';
+      }
+      return;
+    }
+
+    resetActiveAudio();
+    activeSpokenWords = prepareSpokenWords(paragraph);
+    const audio = new Audio(src);
+    audio.dataset.src = src;
+    activeAudio = audio;
+    activeAudioButton = playButton;
+    activeAudioCleanup = () => {
+      playButton.classList.remove('is-playing');
+      playButton.innerHTML = '<i class="fa-solid fa-play text-xs"></i><span>Play paragraph</span>';
+    };
+    playButton.classList.add('is-playing');
+    playButton.innerHTML = '<i class="fa-solid fa-pause text-xs"></i><span>Pause paragraph</span>';
+    audio.addEventListener('timeupdate', () => updateSpokenWordUnderline(audio));
+    audio.addEventListener('loadedmetadata', () => updateSpokenWordUnderline(audio));
+    audio.onended = audio.onerror = () => resetActiveAudio();
+    audio.play().catch(() => resetActiveAudio());
+  }
+
+  function addParagraphAudioControls() {
+    document.querySelectorAll('[data-news-panel]').forEach(panel => {
+      const slug = panel.dataset.audioSlug || panel.dataset.newsPanel || document.body.dataset.slug || 'ferrari-luce-jony-ive-ev';
+      panel.querySelectorAll('.article-block .article-text').forEach((paragraph, index) => {
+        if (paragraph.nextElementSibling && paragraph.nextElementSibling.classList.contains('paragraph-audio')) return;
+        const src = `audio/${slug}/paragraphs/paragraph-${String(index + 1).padStart(2, '0')}.mp3`;
+        const controls = document.createElement('div');
+        controls.className = 'paragraph-audio';
+
+        const playButton = document.createElement('button');
+        playButton.type = 'button';
+        playButton.className = 'paragraph-audio-btn';
+        playButton.innerHTML = '<i class="fa-solid fa-play text-xs"></i><span>Play paragraph</span>';
+        playButton.addEventListener('click', () => playParagraphAudio(src, playButton, paragraph));
+
+        const restartButton = document.createElement('button');
+        restartButton.type = 'button';
+        restartButton.className = 'paragraph-audio-restart';
+        restartButton.title = 'Restart paragraph audio';
+        restartButton.innerHTML = '<i class="fa-solid fa-rotate-left text-xs"></i>';
+        restartButton.addEventListener('click', () => playParagraphAudio(src, playButton, paragraph, true));
+
+        controls.append(playButton, restartButton);
+        paragraph.insertAdjacentElement('afterend', controls);
+      });
+    });
+  }
+
+  function deleteVocabulary(word) {
+    vocabularyData = vocabularyData.filter(item => item.word !== word);
+    renderVocabulary();
+    document.querySelectorAll('.vocab-highlight').forEach(span => {
+      if (span.dataset.word === word) {
+        const t = document.createTextNode(span.textContent);
+        span.parentNode.replaceChild(t, span);
+      }
+    });
+  }
+
+  function addNewWord() {
+    const input = document.getElementById('new-word-input');
+    const word = input.value.trim();
+    if (!word) return;
+    if (vocabularyData.some(i => i.word.toLowerCase() === word.toLowerCase())) {
+      input.style.borderColor = 'var(--economist-red)';
+      input.placeholder = '该单词已存在 / Already in list';
+      input.value = '';
+      setTimeout(() => { input.style.borderColor = ''; input.placeholder = '输入新单词 / Add a new word…'; }, 1800);
+      scrollToVocabularyWord(word);
+      return;
+    }
+    vocabularyData.push(createVocabularyEntry(word));
+    renderVocabulary();
+    input.value = '';
+    highlightWordInArticle(word);
+    scrollToVocabularyWord(word);
+  }
+
+  function createVocabularyEntry(word) {
+    return { word, phonetic: '/.../', meaning: '（请补充中文释义）', example: `Selected phrase: ${word}`, exampleZh: '（请补充例句中文翻译）', audio: '' };
+  }
+
+  function highlightWordInArticle(word) {
+    document.querySelectorAll('.article-text').forEach(p => {
+      const re = new RegExp(`\\b(${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\b`, 'gi');
+      p.innerHTML = p.innerHTML.replace(re, `<span class="vocab-highlight" data-word="${escapeHtml(word)}">$1</span>`);
+    });
+    makeHighlightsClickable();
+  }
+
+  function scrollToVocabularyWord(word) {
+    requestAnimationFrame(() => {
+      const row = [...document.querySelectorAll('.vocab-row')].find(el => el.dataset.word.toLowerCase() === word.toLowerCase());
+      const target = row || document.getElementById('vocab-container');
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (row) {
+        row.animate([
+          { backgroundColor: 'rgba(227, 18, 11, 0.16)' },
+          { backgroundColor: 'transparent' }
+        ], { duration: 1200, easing: 'ease-out' });
+      }
+    });
+  }
+
+  function getArticleSelection() {
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0 || selection.isCollapsed) return null;
+    const text = selection.toString().replace(/\s+/g, ' ').trim();
+    if (!text || text.length > 80) return null;
+
+    const range = selection.getRangeAt(0);
+    const container = range.commonAncestorContainer.nodeType === Node.TEXT_NODE
+      ? range.commonAncestorContainer.parentElement
+      : range.commonAncestorContainer;
+    if (!container || !container.closest('.article-text')) return null;
+
+    const rect = range.getBoundingClientRect();
+    if (!rect || rect.width === 0 || rect.height === 0) return null;
+    return { text, rect };
+  }
+
+  function hideSelectionPopover() {
+    const popover = document.getElementById('selection-vocab-popover');
+    if (!popover) return;
+    popover.classList.remove('is-visible');
+    pendingSelectionText = '';
+  }
+
+  function showSelectionPopover() {
+    const data = getArticleSelection();
+    const popover = document.getElementById('selection-vocab-popover');
+    if (!data || !popover) {
+      hideSelectionPopover();
+      return;
+    }
+    pendingSelectionText = data.text;
+    popover.style.top = `${window.scrollY + data.rect.top - 46}px`;
+    popover.style.left = `${window.scrollX + data.rect.left + (data.rect.width / 2)}px`;
+    popover.style.transform = 'translateX(-50%)';
+    popover.classList.add('is-visible');
+  }
+
+  function addSelectedTextToVocabulary() {
+    const word = pendingSelectionText.trim();
+    if (!word) return;
+    if (!vocabularyData.some(i => i.word.toLowerCase() === word.toLowerCase())) {
+      vocabularyData.push(createVocabularyEntry(word));
+      renderVocabulary();
+      highlightWordInArticle(word);
+    }
+    window.getSelection()?.removeAllRanges();
+    hideSelectionPopover();
+    scrollToVocabularyWord(word);
+  }
+
+  function initializeNewsDirectory() {
+    const buttons = [...document.querySelectorAll('[data-news-target]')];
+    const panels = [...document.querySelectorAll('[data-news-panel]')];
+    if (!buttons.length || !panels.length) return;
+
+    function showNews(id) {
+      buttons.forEach(button => button.classList.toggle('active', button.dataset.newsTarget === id));
+      panels.forEach(panel => { panel.hidden = panel.dataset.newsPanel !== id; });
+      resetActiveAudio();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => showNews(button.dataset.newsTarget));
+    });
+    showNews(buttons.find(button => button.classList.contains('active'))?.dataset.newsTarget || buttons[0].dataset.newsTarget);
+  }
+
+  function showTranslation(word, element) {
+    const item = vocabularyData.find(v => v.word === word);
+    const fallback = element ? {
+      phonetic: element.dataset.phonetic || '',
+      meaning: element.dataset.meaning || ''
+    } : null;
+    if (!item && !fallback?.meaning) return;
+    const phonetic = item?.phonetic || fallback.phonetic;
+    const meaning = item?.meaning || fallback.meaning;
+
+    document.querySelectorAll('.translation-tooltip').forEach(t => t.remove());
+
+    const tip = document.createElement('div');
+    tip.className = 'translation-tooltip cn';
+    tip.innerHTML = `
+      <div class="tooltip-phonetic">${phonetic || ''}</div>
+      <div class="tooltip-meaning">${meaning}</div>
+    `;
+    document.body.appendChild(tip);
+
+    const r = element.getBoundingClientRect();
+    tip.style.top = (window.scrollY + r.top - tip.offsetHeight - 12) + 'px';
+    tip.style.left = (window.scrollX + r.left) + 'px';
+
+    setTimeout(() => {
+      tip.style.transition = 'opacity .25s ease';
+      tip.style.opacity = '0';
+      setTimeout(() => tip.remove(), 260);
+    }, 2400);
+  }
+
+  function renderVocabulary() {
+    const c = document.getElementById('vocab-container');
+    const count = document.getElementById('vocab-count');
+    if (!c) return;
+    c.innerHTML = '';
+    if (count) count.textContent = vocabularyData.length;
+
+    vocabularyData.forEach(item => {
+      const wordForJs = JSON.stringify(item.word).replace(/</g, '\\u003c');
+      const row = document.createElement('div');
+      row.className = 'vocab-row';
+      row.dataset.word = item.word;
+      row.innerHTML = `
+        <div>
+          <div class="vocab-word">${escapeHtml(item.word)}</div>
+          <div class="vocab-phonetic">${escapeHtml(item.phonetic)}</div>
+        </div>
+        <div class="vocab-meta">
+          <div class="vocab-meaning cn">${escapeHtml(item.meaning)}</div>
+          <div class="vocab-example">&ldquo;${escapeHtml(item.example)}&rdquo;</div>
+          <div class="vocab-example-zh cn">${escapeHtml(item.exampleZh || '')}</div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="icon-btn" title="Edge TTS 朗读 / Listen" onclick='speak(vocabularyData.find(v => v.word === ${wordForJs}), this)'>
+            <i class="fa-solid fa-volume-high text-xs"></i>
+          </button>
+          <button class="icon-btn danger" title="删除 / Remove" onclick='deleteVocabulary(${wordForJs})'>
+            <i class="fa-solid fa-xmark text-xs"></i>
+          </button>
+        </div>
+      `;
+      c.appendChild(row);
+    });
+  }
+
+  function makeHighlightsClickable() {
+    document.querySelectorAll('.vocab-highlight').forEach(span => {
+      span.onclick = () => showTranslation(span.dataset.word, span);
+    });
+  }
+
+  function switchTheme(theme) {
+    document.body.classList.toggle('premium', theme === 'premium');
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.theme === theme);
+    });
+    try { localStorage.setItem('economist-theme', theme); } catch(e) {}
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    renderVocabulary();
+    makeHighlightsClickable();
+    addParagraphAudioControls();
+    initializeNewsDirectory();
+    document.getElementById('selection-vocab-popover')?.addEventListener('click', addSelectedTextToVocabulary);
+    document.addEventListener('selectionchange', () => setTimeout(showSelectionPopover, 0));
+    document.addEventListener('mousedown', event => {
+      if (!event.target.closest('#selection-vocab-popover')) hideSelectionPopover();
+    });
+    try {
+      const saved = localStorage.getItem('economist-theme');
+      if (saved) switchTheme(saved);
+    } catch(e) {}
+  });
+</script>
+</body>
+</html>
