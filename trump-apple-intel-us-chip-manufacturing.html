@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Economist · Trump Says Apple and Intel Will Work on U.S. Chips</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root {
+    --paper: #fbf8f1;
+    --paper-2: #f3eee2;
+    --ink: #1a1614;
+    --ink-2: #3a342f;
+    --ink-3: #6b6359;
+    --ink-4: #9a9286;
+    --rule: #e6dfcf;
+    --rule-2: #d8cfba;
+    --economist-red: #e3120b;
+    --economist-red-deep: #b30c06;
+    --accent: #b8860b;
+    --highlight-cn: #fff2b8;
+    --highlight-cn-ink: #6b4f0a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Serif 4', 'Noto Sans SC', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(0,0,0,0.018) 1px, transparent 0);
+    background-size: 4px 4px;
+    opacity: 0.6;
+  }
+
+  body > * { position: relative; z-index: 1; }
+
+  .serif-display { font-family: 'Playfair Display', 'Source Serif 4', Georgia, serif; }
+  .serif-body { font-family: 'Source Serif 4', Georgia, serif; }
+  .sans { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+  .cn { font-family: 'Noto Sans SC', "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+
+  .smallcaps {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    font-size: 0.72rem;
+    color: var(--ink-3);
+  }
+
+  .masthead {
+    background: rgba(251, 248, 241, 0.85);
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .brand-mark {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    background: var(--economist-red);
+    color: #fff;
+    padding: 4px 14px 6px;
+    line-height: 1;
+    border-radius: 2px;
+  }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--economist-red);
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    background: transparent;
+  }
+
+  .meta-line {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+  }
+
+  .theme-toggle {
+    display: inline-flex; align-items: center;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 3px;
+    gap: 2px;
+  }
+  .theme-btn {
+    padding: 6px 14px;
+    border: none; border-radius: 999px;
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 12px; font-weight: 500;
+    cursor: pointer;
+    background: transparent;
+    color: var(--ink-3);
+    transition: all .35s cubic-bezier(.23,1,.32,1);
+    white-space: nowrap;
+  }
+  .theme-btn.active {
+    background: var(--ink);
+    color: var(--paper);
+    box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  }
+
+  .kicker {
+    display: inline-flex; align-items: baseline; gap: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--economist-red);
+  }
+  .kicker .kicker-rule {
+    width: 36px; height: 2px; background: var(--economist-red);
+    display: inline-block;
+  }
+
+  h1.hero-en {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(2.6rem, 5.6vw, 4.6rem);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  h1.hero-en em { font-style: italic; font-weight: 700; color: var(--economist-red-deep); }
+
+  h2.hero-cn {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--ink-2);
+    margin-top: 18px;
+  }
+
+  .standfirst {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.65;
+    color: var(--ink-2);
+    max-width: 38em;
+    margin-top: 22px;
+  }
+
+  .byline {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    display: flex; align-items: center; gap: 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--ink-3);
+  }
+  .byline .dot { width: 4px; height: 4px; background: var(--ink-4); border-radius: 999px; }
+
+  .article-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1.18rem;
+    line-height: 1.78;
+    color: var(--ink);
+    letter-spacing: 0.005em;
+  }
+
+  .paragraph-audio {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0.9rem 0 0;
+    font-family: 'Inter', sans-serif;
+  }
+  .paragraph-audio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border: 1px solid rgba(227, 18, 11, 0.22);
+    background: rgba(227, 18, 11, 0.07);
+    color: var(--economist-red-deep);
+    border-radius: 999px;
+    padding: 0.42rem 0.82rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all .2s ease;
+  }
+  .paragraph-audio-btn:hover {
+    border-color: rgba(227, 18, 11, 0.42);
+    background: rgba(227, 18, 11, 0.12);
+    transform: translateY(-1px);
+  }
+  .paragraph-audio-btn.is-playing {
+    background: var(--economist-red);
+    color: #fff;
+    border-color: var(--economist-red);
+  }
+  .paragraph-audio-restart {
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--ink-3);
+    background: rgba(255, 255, 255, 0.64);
+    transition: all .2s ease;
+  }
+  .paragraph-audio-restart:hover {
+    color: var(--economist-red-deep);
+    border-color: rgba(227, 18, 11, 0.32);
+    background: rgba(227, 18, 11, 0.08);
+  }
+
+  .article-block:first-of-type .article-text::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 4.6em;
+    float: left;
+    line-height: 0.85;
+    margin: 0.08em 0.12em 0 -0.04em;
+    color: var(--economist-red-deep);
+  }
+
+  .spoken-word {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.16em;
+    transition: text-decoration-color .12s ease, background-color .12s ease;
+  }
+  .spoken-word.is-speaking {
+    text-decoration-color: var(--economist-red);
+    background: rgba(227, 18, 11, 0.08);
+    border-radius: 0.12em;
+  }
+
+  .chinese {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 400;
+    color: var(--ink-2);
+    font-size: 1.02rem;
+    line-height: 1.95;
+    margin-top: 1.1rem;
+    padding-top: 1.1rem;
+    border-top: 1px dashed var(--rule);
+    letter-spacing: 0.01em;
+  }
+
+  .vocab-highlight {
+    background: rgba(227, 18, 11, 0.12);
+    padding: 0.04em 0.16em 0.08em;
+    border-radius: 0.16em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--ink);
+    border-bottom: 1px solid rgba(227, 18, 11, 0.45);
+    transition: all .2s ease;
+  }
+  .vocab-highlight:hover {
+    background: rgba(227, 18, 11, 0.18);
+    color: var(--economist-red-deep);
+  }
+
+  .chinese-highlight {
+    background: var(--highlight-cn);
+    color: var(--highlight-cn-ink);
+    padding: 0.04em 0.18em 0.08em;
+    border-radius: 0.16em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex; align-items: center; gap: 18px;
+    margin: 80px 0 40px;
+    color: var(--ink-3);
+  }
+  .section-divider::before,
+  .section-divider::after {
+    content: ""; flex: 1; height: 1px; background: var(--rule);
+  }
+  .section-divider .ornament {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  .vocab-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+  }
+
+  .vocab-row {
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) 1fr auto;
+    gap: 28px;
+    align-items: start;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .vocab-row:last-child { border-bottom: 0; }
+
+  .vocab-word {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .vocab-phonetic {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    color: var(--ink-3);
+    margin-top: 4px;
+    letter-spacing: 0;
+  }
+  .vocab-meaning {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .vocab-example {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    color: var(--ink-3);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-top: 6px;
+    padding-left: 12px;
+    border-left: 2px solid var(--rule-2);
+  }
+  .vocab-example-zh {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-style: normal;
+    color: var(--ink-3);
+    font-size: 0.86rem;
+    line-height: 1.55;
+    margin-top: 4px;
+    opacity: 0.9;
+  }
+
+  .icon-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px;
+    border-radius: 999px;
+    color: var(--ink-3);
+    background: transparent;
+    border: 1px solid var(--rule);
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  .icon-btn:hover { color: var(--economist-red); border-color: var(--economist-red); background: rgba(227,18,11,0.04); }
+  .icon-btn.danger:hover { color: #b30c06; border-color: #b30c06; }
+
+  .input-field {
+    flex: 1;
+    background: #fff;
+    border: 1px solid var(--rule-2);
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s ease;
+  }
+  .input-field:focus { border-color: var(--ink); }
+  .input-field::placeholder { color: var(--ink-4); }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 12px 22px;
+    border-radius: 4px;
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: all .2s ease;
+  }
+  .btn-primary:hover { background: var(--economist-red); }
+  .btn-primary:active { transform: translateY(1px); }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+
+  .translation-tooltip {
+    position: absolute;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    z-index: 100;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .translation-tooltip .tooltip-phonetic {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    opacity: 0.72;
+    margin-bottom: 3px;
+  }
+  .translation-tooltip .tooltip-meaning {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .translation-tooltip::after {
+    content: ""; position: absolute;
+    bottom: -5px; left: 16px;
+    width: 10px; height: 10px;
+    background: var(--ink);
+    transform: rotate(45deg);
+  }
+
+  .selection-vocab-popover {
+    position: absolute;
+    z-index: 120;
+    display: none;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.72rem;
+    border: 1px solid rgba(227, 18, 11, 0.24);
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--paper);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.18);
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: transform .18s ease, background .18s ease;
+  }
+  .selection-vocab-popover:hover {
+    background: var(--economist-red);
+    transform: translateY(-1px);
+  }
+  .selection-vocab-popover.is-visible { display: inline-flex; }
+
+  .article-footer {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+  }
+  .article-footer .red-rule {
+    width: 60px; height: 4px;
+    background: var(--economist-red);
+    margin-bottom: 18px;
+  }
+
+  /* PREMIUM (高端质感) — Dark theme */
+  body.premium {
+    background: #0e0d0c;
+    color: #e8e1d1;
+  }
+  body.premium::before {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.025) 1px, transparent 0);
+    opacity: 0.5;
+  }
+
+  body.premium .masthead {
+    background: rgba(14, 13, 12, 0.88);
+    border-bottom-color: rgba(201, 168, 76, 0.18);
+  }
+  body.premium .brand-mark {
+    background: linear-gradient(135deg, #d4b568, #9a7b30);
+    color: #0e0d0c;
+  }
+  body.premium .pill {
+    color: #d4b568;
+    border-color: rgba(212, 181, 104, 0.5);
+  }
+  body.premium .meta-line { color: #8a8170; }
+
+  body.premium .theme-toggle {
+    background: #1a1815;
+    border-color: rgba(201, 168, 76, 0.18);
+  }
+  body.premium .theme-btn { color: #8a8170; }
+  body.premium .theme-btn.active {
+    background: linear-gradient(135deg, #d4b568, #9a7b30);
+    color: #0e0d0c;
+    box-shadow: 0 2px 12px rgba(212, 181, 104, 0.25);
+  }
+
+  body.premium .kicker { color: #d4b568; }
+  body.premium .kicker .kicker-rule { background: #d4b568; }
+
+  body.premium h1.hero-en { color: #f4ecd8; }
+  body.premium h1.hero-en em { color: #d4b568; }
+  body.premium h2.hero-cn { color: #b8b0a0; }
+  body.premium .standfirst { color: #b8b0a0; }
+  body.premium .byline {
+    color: #8a8170;
+    border-top-color: rgba(201, 168, 76, 0.18);
+  }
+  body.premium .byline .dot { background: #6a6358; }
+
+  body.premium .article-text { color: #d8cfb8; }
+  body.premium .article-block:first-of-type .article-text::first-letter { color: #d4b568; }
+  body.premium .spoken-word.is-speaking {
+    text-decoration-color: #d4b568;
+    background: rgba(212, 181, 104, 0.13);
+  }
+  body.premium .chinese {
+    color: #9a9282;
+    border-top-color: rgba(201, 168, 76, 0.14);
+  }
+
+  body.premium .vocab-highlight {
+    background: rgba(212, 181, 104, 0.18);
+    color: #f4ecd8;
+    border-bottom-color: rgba(212, 181, 104, 0.6);
+  }
+  body.premium .vocab-highlight:hover {
+    background: rgba(212, 181, 104, 0.24);
+    color: #d4b568;
+  }
+  body.premium .chinese-highlight {
+    background: rgba(212, 181, 104, 0.18);
+    color: #d4b568;
+  }
+
+  body.premium .section-divider { color: #8a8170; }
+  body.premium .section-divider::before,
+  body.premium .section-divider::after { background: rgba(201, 168, 76, 0.18); }
+  body.premium .section-divider .ornament { color: #8a8170; }
+
+  body.premium .smallcaps { color: #8a8170; }
+
+  body.premium .vocab-card {
+    background: #16140f;
+    border-color: rgba(201, 168, 76, 0.18);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  }
+  body.premium .vocab-row { border-bottom-color: rgba(201, 168, 76, 0.12); }
+  body.premium .vocab-word { color: #f4ecd8; }
+  body.premium .vocab-phonetic { color: #8a8170; }
+  body.premium .vocab-meaning { color: #d8cfb8; }
+  body.premium .vocab-example {
+    color: #8a8170;
+    border-left-color: rgba(201, 168, 76, 0.25);
+  }
+
+  body.premium .icon-btn {
+    color: #8a8170;
+    border-color: rgba(201, 168, 76, 0.22);
+  }
+  body.premium .icon-btn:hover {
+    color: #d4b568;
+    border-color: #d4b568;
+    background: rgba(212, 181, 104, 0.08);
+  }
+
+  body.premium .input-field {
+    background: #1a1814;
+    border-color: rgba(201, 168, 76, 0.22);
+    color: #e8e1d1;
+  }
+  body.premium .input-field:focus { border-color: #d4b568; }
+  body.premium .input-field::placeholder { color: #6a6358; }
+
+  body.premium .btn-primary {
+    background: linear-gradient(135deg, #d4b568, #9a7b30);
+    color: #0e0d0c;
+  }
+  body.premium .btn-primary:hover { filter: brightness(1.08); }
+
+  body.premium .stat-num { color: #f4ecd8; }
+
+  body.premium .translation-tooltip {
+    background: linear-gradient(135deg, #d4b568, #9a7b30);
+    color: #0e0d0c;
+  }
+  body.premium .translation-tooltip::after { background: #b89549; }
+
+  body.premium .selection-vocab-popover {
+    background: linear-gradient(135deg, #d4b568, #9a7b30);
+    color: #0e0d0c;
+    border-color: rgba(212, 181, 104, 0.38);
+  }
+
+  body.premium .article-footer {
+    border-top-color: #d4b568;
+    color: #8a8170;
+  }
+  body.premium .article-footer .red-rule { background: #d4b568; }
+
+  .news-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+  }
+  .news-sidebar {
+    position: sticky;
+    top: 112px;
+    align-self: start;
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.58);
+    padding: 18px;
+    box-shadow: 0 18px 50px rgba(30, 25, 18, 0.06);
+  }
+  .news-sidebar-title {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 12px;
+  }
+  .news-list {
+    display: grid;
+    gap: 8px;
+  }
+  .news-list button {
+    width: 100%;
+    text-align: left;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: transparent;
+    padding: 12px 12px 13px;
+    color: var(--ink-2);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 0.98rem;
+    line-height: 1.25;
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  .news-list button:hover,
+  .news-list button.active {
+    border-color: rgba(227, 18, 11, 0.2);
+    background: rgba(227, 18, 11, 0.07);
+    color: var(--ink);
+  }
+  .news-reader[hidden] { display: none; }
+
+  body.premium .news-sidebar {
+    background: rgba(20, 18, 14, 0.76);
+    border-color: rgba(201, 168, 76, 0.16);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+  }
+  body.premium .news-list button { color: #d8cfb8; }
+  body.premium .news-list button:hover,
+  body.premium .news-list button.active {
+    border-color: rgba(212, 181, 104, 0.28);
+    background: rgba(212, 181, 104, 0.1);
+    color: #f4ecd8;
+  }
+
+  body, .masthead, .vocab-card, h1, h2, p, span, input, button, div, .icon-btn {
+    transition: background-color .4s ease, color .4s ease,
+                border-color .4s ease, box-shadow .4s ease;
+  }
+
+  @media (max-width: 768px) {
+    .news-layout { display: block; }
+    .news-sidebar {
+      position: relative;
+      top: auto;
+      margin-bottom: 36px;
+    }
+    .vocab-row { grid-template-columns: 1fr auto; }
+    .vocab-row > .vocab-meta { grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body data-slug="trump-apple-intel-us-chip-manufacturing">
+<!-- verification-snippets:
+Reuters lists the article title as "Trump says Apple to partner with Intel on US chip design, production".
+Reuters reports Trump said Apple agreed to work with Intel on U.S. chip design and manufacturing.
+The source notes Intel shares rose in premarket trading and that Apple and Intel did not immediately comment.
+-->
+
+<header class="masthead sticky top-0 z-50">
+  <div class="max-w-5xl mx-auto px-8 py-5 flex items-center justify-between gap-6">
+    <div class="flex items-center gap-4">
+      <span class="brand-mark text-xl">The Economist</span>
+    </div>
+    <div class="flex items-center gap-5">
+      <div class="theme-toggle cn">
+        <button class="theme-btn active" data-theme="clean" onclick="switchTheme('clean')">简洁</button>
+        <button class="theme-btn" data-theme="premium" onclick="switchTheme('premium')">高端质感</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-8 pt-16 pb-24">
+
+<div class="news-layout">
+  <aside class="news-sidebar" aria-label="News directory">
+    <div class="news-sidebar-title cn">新闻目录</div>
+    <nav class="news-list" id="news-list">
+      <button class="active" type="button" onclick="location.href='trump-apple-intel-us-chip-manufacturing.html'">
+        Trump Says Apple and Intel Will Work on U.S. Chips
+      </button>
+      <button type="button" onclick="location.href='gemini-omni-hands-on-deepfake-ai-video.html'">
+        Google&#x27;s New Anything-to-Anything AI Model Is Wild
+      </button>
+      <button type="button" onclick="location.href='ai-music-grammys-human-creativity-industry-rules.html'">
+        AI is blowing up music. How should the Grammys handle it?
+      </button>
+      <button type="button" onclick="location.href='ai-leaders-jobs-narrative-pivot.html'">
+        AI Leaders Reframe the Jobs Story
+      </button>
+      <button type="button" onclick="location.href='ferrari-luce-jony-ive-ev.html'">
+        How Ferrari Bungled the Design of its First EV
+      </button>
+      <button type="button" onclick="location.href='paul-graham-ai-writing.html'">
+        How AI Is Reshaping the Art of Writing
+      </button>
+    </nav>
+  </aside>
+
+  <div class="news-reader" data-news-panel="trump-apple-intel-us-chip-manufacturing" data-audio-slug="trump-apple-intel-us-chip-manufacturing">
+
+  <section class="max-w-3xl">
+    <div class="kicker"><span class="kicker-rule"></span> Chips, Supply Chains, and Industrial Policy</div>
+
+    <h1 class="hero-en mt-6">Trump Says Apple and Intel Will Work on U.S. Chips</h1>
+
+    <h2 class="hero-cn cn">特朗普称苹果与英特尔将在美国芯片上合作</h2>
+
+    <p class="standfirst">A copyright-safe Business English lesson on Apple, Intel, U.S. chip manufacturing, and the politics of semiconductor supply chains.</p>
+
+    <div class="byline">
+      <span class="smallcaps">来源</span>
+      <span class="dot"></span>
+      <a href="https://www.yahoo.com/finance/technology/articles/trump-says-apple-intel-manufacture-044440199.html" target="_blank" rel="noopener noreferrer">Yahoo Finance / Reuters 原文链接</a>
+    </div>
+  </section>
+
+  <article class="mt-16 max-w-3xl space-y-12">
+
+    <div class="article-block">
+      <p class="article-text">President Donald Trump said Apple had agreed to work with Intel on chip design and <span class="vocab-highlight" data-word="manufacturing" data-phonetic="/ˌmænjuˈfæktʃərɪŋ/" data-meaning="制造；生产">manufacturing</span> in the United States. For markets, the message was less about one product and more about the future of American <span class="vocab-highlight" data-word="semiconductor" data-phonetic="/ˌsemikənˈdʌktər/" data-meaning="半导体">semiconductor</span> <span class="vocab-highlight" data-word="capacity" data-phonetic="/kəˈpæsəti/" data-meaning="产能；容量">capacity</span>.</p>
+      <p class="chinese cn">美国总统唐纳德·特朗普表示，苹果已同意与英特尔在美国开展芯片设计和制造合作。对市场而言，这一信息关注的不只是某个产品，而是美国半导体产能的未来。</p>
+    </div>
+    <div class="article-block">
+      <p class="article-text">The possible partnership would give Apple another way to <span class="vocab-highlight" data-word="diversify" data-phonetic="/daɪˈvɜːrsɪfaɪ/" data-meaning="多元化；分散">diversify</span> its chip <span class="vocab-highlight" data-word="supply chain" data-phonetic="/səˈplaɪ tʃeɪn/" data-meaning="供应链">supply chain</span>. The iPhone maker has depended heavily on TSMC, whose most advanced factories are also in high demand from AI chipmakers.</p>
+      <p class="chinese cn">这一潜在合作将为苹果提供另一种分散芯片供应链的方式。苹果一直高度依赖台积电，而台积电最先进的产线也受到 AI 芯片厂商的强烈需求。</p>
+    </div>
+    <div class="article-block">
+      <p class="article-text">Investors reacted quickly. Intel shares rose in <span class="vocab-highlight" data-word="premarket" data-phonetic="/ˌpriːˈmɑːrkɪt/" data-meaning="盘前交易的">premarket</span> trading, adding to a strong run this year, because an Apple contract would signal steadier demand for Intel's <span class="vocab-highlight" data-word="foundry" data-phonetic="/ˈfaʊndri/" data-meaning="代工厂；晶圆厂">foundry</span> business.</p>
+      <p class="chinese cn">投资者迅速作出反应。英特尔股价在盘前上涨，并延续今年以来的强势表现，因为苹果订单将意味着英特尔代工业务拥有更稳定的需求。</p>
+    </div>
+    <div class="article-block">
+      <p class="article-text">Reuters noted that Apple and Intel did not immediately comment outside regular business hours. That <span class="vocab-highlight" data-word="caveat" data-phonetic="/ˈkæviæt/" data-meaning="警告；保留条件">caveat</span> matters: political announcements can move markets before companies confirm the operational details.</p>
+      <p class="chinese cn">路透社指出，苹果和英特尔在非工作时间没有立即回应置评请求。这个保留信息很重要：政治表态可能在企业确认具体运营细节之前就推动市场波动。</p>
+    </div>
+    <div class="article-block">
+      <p class="article-text">For Intel, a customer like Apple would be more than revenue. It would strengthen the company's reputation after years of trailing TSMC in advanced <span class="vocab-highlight" data-word="manufacturing" data-phonetic="/ˌmænjuˈfæktʃərɪŋ/" data-meaning="制造；生产">manufacturing</span>.</p>
+      <p class="chinese cn">对英特尔而言，苹果这样的客户带来的不只是收入。它还会增强公司的声誉，因为英特尔近年来在先进制程制造方面一直落后于台积电。</p>
+    </div>
+    <div class="article-block">
+      <p class="article-text">The timing also fits Intel's technology <span class="vocab-highlight" data-word="roadmap" data-phonetic="/ˈroʊdmæp/" data-meaning="路线图；计划">roadmap</span>. The company recently said its 18A <span class="vocab-highlight" data-word="manufacturing" data-phonetic="/ˌmænjuˈfæktʃərɪŋ/" data-meaning="制造；生产">manufacturing</span> process had entered initial production, a milestone it hopes will prove its factories can compete again.</p>
+      <p class="chinese cn">这一时点也符合英特尔的技术路线图。该公司最近表示，其 18A 制造工艺已进入初始生产阶段，这是它希望证明其工厂能够重新竞争的重要里程碑。</p>
+    </div>
+    <div class="article-block">
+      <p class="article-text">The broader story is <span class="vocab-highlight" data-word="industrial policy" data-phonetic="/ɪnˈdʌstriəl ˈpɑːləsi/" data-meaning="产业政策">industrial policy</span>. Washington has been trying to reduce reliance on overseas suppliers for critical minerals and <span class="vocab-highlight" data-word="semiconductor" data-phonetic="/ˌsemikənˈdʌktər/" data-meaning="半导体">semiconductors</span>, including through direct investment and <span class="vocab-highlight" data-word="equity stake" data-phonetic="/ˈekwəti steɪk/" data-meaning="股权；持股">equity stakes</span>.</p>
+      <p class="chinese cn">更大的背景是产业政策。华盛顿一直试图减少对海外关键矿产和半导体供应商的依赖，其中包括直接投资和持股。</p>
+    </div>
+    <div class="article-block">
+      <p class="article-text">Such deals can blur the line between corporate strategy and government strategy. A chip factory is not only a business asset; it is also a national-security asset.</p>
+      <p class="chinese cn">这类交易会模糊企业战略与政府战略之间的界限。芯片工厂不仅是商业资产，也是国家安全资产。</p>
+    </div>
+    <div class="article-block">
+      <p class="article-text">For business English learners, the key phrase is supply-chain <span class="vocab-highlight" data-word="resilience" data-phonetic="/rɪˈzɪliəns/" data-meaning="韧性；恢复力">resilience</span>. Companies want cheaper production, but governments increasingly want production that is local, trusted, and politically secure.</p>
+      <p class="chinese cn">对商务英语学习者来说，关键词是供应链韧性。企业希望生产成本更低，但政府越来越希望生产本地化、可信且具备政治安全性。</p>
+    </div>
+    <div class="article-block">
+      <p class="article-text">The final lesson is that chip news often combines technology, finance, and geopolitics. A single <span class="vocab-highlight" data-word="manufacturing" data-phonetic="/ˌmænjuˈfæktʃərɪŋ/" data-meaning="制造；生产">manufacturing</span> agreement can affect stock prices, supplier relationships, and national policy at the same time.</p>
+      <p class="chinese cn">最后的启示是，芯片新闻常常同时涉及技术、金融和地缘政治。一项制造协议可能同时影响股价、供应商关系和国家政策。</p>
+    </div>
+
+  </article>
+
+  <section class="mt-20 max-w-3xl">
+    <div class="section-divider"><span class="ornament">Core Vocabulary</span></div>
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <div class="smallcaps">Words to Master</div>
+        <div class="flex items-baseline gap-3 mt-2">
+          <span id="vocab-count" class="stat-num">12</span>
+          <span class="cn text-base" style="color:var(--ink-3)">个核心词汇</span>
+        </div>
+      </div>
+      <div class="meta-line hidden sm:block">点击文中高亮词查看释义 · Click highlighted words</div>
+    </div>
+    <div class="vocab-card p-8">
+      <div class="flex gap-3 mb-8">
+        <input id="new-word-input" type="text" placeholder="输入新单词 / Add a new word…" class="input-field cn" onkeydown="if(event.key==='Enter') addNewWord()">
+        <button onclick="addNewWord()" class="btn-primary cn"><i class="fa-solid fa-plus mr-1.5"></i> 添加到词汇表</button>
+      </div>
+      <div id="vocab-container"></div>
+    </div>
+  </section>
+
+  <footer class="article-footer max-w-3xl"><div class="red-rule"></div></footer>
+  </div>
+</div>
+</main>
+
+<button id="selection-vocab-popover" class="selection-vocab-popover" type="button">
+  <i class="fa-solid fa-plus text-xs"></i>
+  <span>加入词汇表</span>
+</button>
+
+<script>
+  let vocabularyData = [
+        {
+              "word": "manufacturing",
+              "phonetic": "/ˌmænjuˈfæktʃərɪŋ/",
+              "meaning": "制造；生产",
+              "example": "Advanced manufacturing requires skilled engineers and reliable suppliers.",
+              "exampleZh": "先进制造需要熟练工程师和可靠供应商。",
+              "audio": "audio/trump-apple-intel-us-chip-manufacturing/manufacturing.mp3"
+        },
+        {
+              "word": "semiconductor",
+              "phonetic": "/ˌsemikənˈdʌktər/",
+              "meaning": "半导体",
+              "example": "Semiconductors are essential components in phones, cars, and data centers.",
+              "exampleZh": "半导体是手机、汽车和数据中心中的关键组件。",
+              "audio": "audio/trump-apple-intel-us-chip-manufacturing/semiconductor.mp3"
+        },
+        {
+              "word": "capacity",
+              "phonetic": "/kəˈpæsəti/",
+              "meaning": "产能；容量",
+              "example": "The company expanded capacity to meet stronger demand.",
+              "exampleZh": "该公司扩大产能以满足更强劲的需求。",
+              "audio": "audio/trump-apple-intel-us-chip-manufacturing/capacity.mp3"
+        },
+        {
+              "word": "diversify",
+              "phonetic": "/daɪˈvɜːrsɪfaɪ/",
+              "meaning": "多元化；分散",
+              "example": "Apple wants to diversify its suppliers to reduce risk.",
+              "exampleZh": "苹果希望使供应商多元化以降低风险。",
+              "audio": "audio/trump-apple-intel-us-chip-manufacturing/diversify.mp3"
+        },
+        {
+              "word": "supply chain",
+              "phonetic": "/səˈplaɪ tʃeɪn/",
+              "meaning": "供应链",
+              "example": "A resilient supply chain can survive political and logistical shocks.",
+              "exampleZh": "有韧性的供应链能够承受政治和物流冲击。",
+              "audio": "audio/trump-apple-intel-us-chip-manufacturing/supply-chain.mp3"
+        },
+        {
+              "word": "foundry",
+              "phonetic": "/ˈfaʊndri/",
+              "meaning": "代工厂；晶圆厂",
+              "example": "Intel hopes its foundry business can win more outside customers.",
+              "exampleZh": "英特尔希望其代工业务能赢得更多外部客户。",
+              "audio": "audio/trump-apple-intel-us-chip-manufacturing/foundry.mp3"
+        },
+        {
+              "word": "premarket",
+              "phonetic": "/ˌpriːˈmɑːrkɪt/",
+              "meaning": "盘前交易的",
+              "example": "The stock jumped in premarket trading after the announcement.",
+              "exampleZh": "公告发布后，该股票在盘前交易中上涨。",
+              "audio": "audio/trump-apple-intel-us-chip-manufacturing/premarket.mp3"
+        },
+        {
+              "word": "caveat",
+              "phonetic": "/ˈkæviæt/",
+              "meaning": "警告；保留条件",
+              "example": "The report came with an important caveat: neither company had confirmed the details.",
+              "exampleZh": "该报道带有一个重要保留条件：两家公司都尚未确认细节。",
+              "audio": "audio/trump-apple-intel-us-chip-manufacturing/caveat.mp3"
+        },
+        {
+              "word": "roadmap",
+              "phonetic": "/ˈroʊdmæp/",
+              "meaning": "路线图；计划",
+              "example": "The technology roadmap shows when new production processes will arrive.",
+              "exampleZh": "技术路线图显示新生产工艺何时推出。",
+              "audio": "audio/trump-apple-intel-us-chip-manufacturing/roadmap.mp3"
+        },
+        {
+              "word": "industrial policy",
+              "phonetic": "/ɪnˈdʌstriəl ˈpɑːləsi/",
+              "meaning": "产业政策",
+              "example": "Industrial policy can shape where strategic products are made.",
+              "exampleZh": "产业政策可以影响战略产品的生产地点。",
+              "audio": "audio/trump-apple-intel-us-chip-manufacturing/industrial-policy.mp3"
+        },
+        {
+              "word": "equity stake",
+              "phonetic": "/ˈekwəti steɪk/",
+              "meaning": "股权；持股",
+              "example": "The government took an equity stake to support domestic production.",
+              "exampleZh": "政府通过持股来支持国内生产。",
+              "audio": "audio/trump-apple-intel-us-chip-manufacturing/equity-stake.mp3"
+        },
+        {
+              "word": "resilience",
+              "phonetic": "/rɪˈzɪliəns/",
+              "meaning": "韧性；恢复力",
+              "example": "Supply-chain resilience has become a boardroom priority.",
+              "exampleZh": "供应链韧性已成为董事会优先事项。",
+              "audio": "audio/trump-apple-intel-us-chip-manufacturing/resilience.mp3"
+        }
+  ];
+
+  let activeAudio = null;
+  let activeAudioButton = null;
+  let activeAudioCleanup = null;
+  let activeSpokenWords = [];
+  let activeSpokenIndex = -1;
+  let pendingSelectionText = '';
+
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+  }
+
+  function resetActiveAudio() {
+    if (activeAudio) {
+      activeAudio.pause();
+      activeAudio.currentTime = 0;
+    }
+    clearSpokenWordUnderline();
+    if (activeAudioCleanup) {
+      activeAudioCleanup();
+    } else if (activeAudioButton) {
+      activeAudioButton.classList.remove('is-playing');
+      activeAudioButton.innerHTML = '<i class="fa-solid fa-play text-xs"></i><span>Play paragraph</span>';
+    }
+    activeAudio = null;
+    activeAudioButton = null;
+    activeAudioCleanup = null;
+  }
+
+  function clearSpokenWordUnderline() {
+    activeSpokenWords.forEach(word => word.classList.remove('is-speaking'));
+    activeSpokenWords = [];
+    activeSpokenIndex = -1;
+  }
+
+  function speak(item, button) {
+    if (!item || !item.audio) return;
+    resetActiveAudio();
+    const original = button ? button.innerHTML : '';
+    const audio = new Audio(item.audio);
+    activeAudio = audio;
+    activeAudioCleanup = () => {
+      if (button) button.innerHTML = original;
+    };
+    if (button) button.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-xs"></i>';
+    audio.onended = audio.onerror = () => {
+      if (activeAudio === audio) {
+        if (activeAudioCleanup) activeAudioCleanup();
+        activeAudio = null;
+        activeAudioButton = null;
+        activeAudioCleanup = null;
+      }
+    };
+    audio.play().catch(() => {
+      if (activeAudio === audio) {
+        if (activeAudioCleanup) activeAudioCleanup();
+        activeAudio = null;
+        activeAudioButton = null;
+        activeAudioCleanup = null;
+      }
+    });
+  }
+
+  function prepareSpokenWords(paragraph) {
+    if (!paragraph.dataset.spokenPrepared) {
+      const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          return node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        }
+      });
+      const textNodes = [];
+      while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+      textNodes.forEach(node => {
+        const fragment = document.createDocumentFragment();
+        node.nodeValue.split(/(\s+)/).forEach(token => {
+          if (!token) return;
+          if (/\s+/.test(token)) {
+            fragment.appendChild(document.createTextNode(token));
+            return;
+          }
+          const span = document.createElement('span');
+          span.className = 'spoken-word';
+          span.textContent = token;
+          fragment.appendChild(span);
+        });
+        node.parentNode.replaceChild(fragment, node);
+      });
+      paragraph.dataset.spokenPrepared = 'true';
+      makeHighlightsClickable();
+    }
+    return [...paragraph.querySelectorAll('.spoken-word')];
+  }
+
+  function updateSpokenWordUnderline(audio) {
+    if (!activeSpokenWords.length || !Number.isFinite(audio.duration) || audio.duration <= 0) return;
+    const index = Math.min(activeSpokenWords.length - 1, Math.floor((audio.currentTime / audio.duration) * activeSpokenWords.length));
+    if (index === activeSpokenIndex) return;
+    if (activeSpokenWords[activeSpokenIndex]) activeSpokenWords[activeSpokenIndex].classList.remove('is-speaking');
+    activeSpokenWords[index].classList.add('is-speaking');
+    activeSpokenIndex = index;
+  }
+
+  function playParagraphAudio(src, playButton, paragraph, restart = false) {
+    if (activeAudio && activeAudio.dataset && activeAudio.dataset.src === src && !restart) {
+      if (activeAudio.paused) {
+        activeAudio.play();
+        playButton.classList.add('is-playing');
+        playButton.innerHTML = '<i class="fa-solid fa-pause text-xs"></i><span>Pause paragraph</span>';
+      } else {
+        activeAudio.pause();
+        playButton.classList.remove('is-playing');
+        playButton.innerHTML = '<i class="fa-solid fa-play text-xs"></i><span>Resume paragraph</span>';
+      }
+      return;
+    }
+
+    resetActiveAudio();
+    activeSpokenWords = prepareSpokenWords(paragraph);
+    const audio = new Audio(src);
+    audio.dataset.src = src;
+    activeAudio = audio;
+    activeAudioButton = playButton;
+    activeAudioCleanup = () => {
+      playButton.classList.remove('is-playing');
+      playButton.innerHTML = '<i class="fa-solid fa-play text-xs"></i><span>Play paragraph</span>';
+    };
+    playButton.classList.add('is-playing');
+    playButton.innerHTML = '<i class="fa-solid fa-pause text-xs"></i><span>Pause paragraph</span>';
+    audio.addEventListener('timeupdate', () => updateSpokenWordUnderline(audio));
+    audio.addEventListener('loadedmetadata', () => updateSpokenWordUnderline(audio));
+    audio.onended = audio.onerror = () => resetActiveAudio();
+    audio.play().catch(() => resetActiveAudio());
+  }
+
+  function addParagraphAudioControls() {
+    document.querySelectorAll('[data-news-panel]').forEach(panel => {
+      const slug = panel.dataset.audioSlug || panel.dataset.newsPanel || document.body.dataset.slug || 'ferrari-luce-jony-ive-ev';
+      panel.querySelectorAll('.article-block .article-text').forEach((paragraph, index) => {
+        if (paragraph.nextElementSibling && paragraph.nextElementSibling.classList.contains('paragraph-audio')) return;
+        const src = `audio/${slug}/paragraphs/paragraph-${String(index + 1).padStart(2, '0')}.mp3`;
+        const controls = document.createElement('div');
+        controls.className = 'paragraph-audio';
+
+        const playButton = document.createElement('button');
+        playButton.type = 'button';
+        playButton.className = 'paragraph-audio-btn';
+        playButton.innerHTML = '<i class="fa-solid fa-play text-xs"></i><span>Play paragraph</span>';
+        playButton.addEventListener('click', () => playParagraphAudio(src, playButton, paragraph));
+
+        const restartButton = document.createElement('button');
+        restartButton.type = 'button';
+        restartButton.className = 'paragraph-audio-restart';
+        restartButton.title = 'Restart paragraph audio';
+        restartButton.innerHTML = '<i class="fa-solid fa-rotate-left text-xs"></i>';
+        restartButton.addEventListener('click', () => playParagraphAudio(src, playButton, paragraph, true));
+
+        controls.append(playButton, restartButton);
+        paragraph.insertAdjacentElement('afterend', controls);
+      });
+    });
+  }
+
+  function deleteVocabulary(word) {
+    vocabularyData = vocabularyData.filter(item => item.word !== word);
+    renderVocabulary();
+    document.querySelectorAll('.vocab-highlight').forEach(span => {
+      if (span.dataset.word === word) {
+        const t = document.createTextNode(span.textContent);
+        span.parentNode.replaceChild(t, span);
+      }
+    });
+  }
+
+  function addNewWord() {
+    const input = document.getElementById('new-word-input');
+    const word = input.value.trim();
+    if (!word) return;
+    if (vocabularyData.some(i => i.word.toLowerCase() === word.toLowerCase())) {
+      input.style.borderColor = 'var(--economist-red)';
+      input.placeholder = '该单词已存在 / Already in list';
+      input.value = '';
+      setTimeout(() => { input.style.borderColor = ''; input.placeholder = '输入新单词 / Add a new word…'; }, 1800);
+      markVocabularyWord(word);
+      return;
+    }
+    vocabularyData.push(createVocabularyEntry(word));
+    renderVocabulary();
+    input.value = '';
+    highlightWordInArticle(word);
+    markVocabularyWord(word);
+  }
+
+  function createVocabularyEntry(word) {
+    return { word, phonetic: '/.../', meaning: '（请补充中文释义）', example: `Selected phrase: ${word}`, exampleZh: '（请补充例句中文翻译）', audio: '' };
+  }
+
+  function highlightWordInArticle(word) {
+    document.querySelectorAll('.article-text').forEach(p => {
+      const re = new RegExp(`\\b(${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\b`, 'gi');
+      p.innerHTML = p.innerHTML.replace(re, `<span class="vocab-highlight" data-word="${escapeHtml(word)}">$1</span>`);
+    });
+    makeHighlightsClickable();
+  }
+
+  function markVocabularyWord(word) {
+    requestAnimationFrame(() => {
+      const row = [...document.querySelectorAll('.vocab-row')].find(el => el.dataset.word.toLowerCase() === word.toLowerCase());
+      if (row) {
+        row.animate([
+          { backgroundColor: 'rgba(227, 18, 11, 0.16)' },
+          { backgroundColor: 'transparent' }
+        ], { duration: 1200, easing: 'ease-out' });
+      }
+    });
+  }
+
+  function getArticleSelection() {
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0 || selection.isCollapsed) return null;
+    const text = selection.toString().replace(/\s+/g, ' ').trim();
+    if (!text || text.length > 80) return null;
+
+    const range = selection.getRangeAt(0);
+    const container = range.commonAncestorContainer.nodeType === Node.TEXT_NODE
+      ? range.commonAncestorContainer.parentElement
+      : range.commonAncestorContainer;
+    if (!container || !container.closest('.article-text')) return null;
+
+    const rect = range.getBoundingClientRect();
+    if (!rect || rect.width === 0 || rect.height === 0) return null;
+    return { text, rect };
+  }
+
+  function hideSelectionPopover() {
+    const popover = document.getElementById('selection-vocab-popover');
+    if (!popover) return;
+    popover.classList.remove('is-visible');
+    pendingSelectionText = '';
+  }
+
+  function showSelectionPopover() {
+    const data = getArticleSelection();
+    const popover = document.getElementById('selection-vocab-popover');
+    if (!data || !popover) {
+      hideSelectionPopover();
+      return;
+    }
+    pendingSelectionText = data.text;
+    popover.style.top = `${window.scrollY + data.rect.top - 46}px`;
+    popover.style.left = `${window.scrollX + data.rect.left + (data.rect.width / 2)}px`;
+    popover.style.transform = 'translateX(-50%)';
+    popover.classList.add('is-visible');
+  }
+
+  function addSelectedTextToVocabulary() {
+    const word = pendingSelectionText.trim();
+    if (!word) return;
+    if (!vocabularyData.some(i => i.word.toLowerCase() === word.toLowerCase())) {
+      vocabularyData.push(createVocabularyEntry(word));
+      renderVocabulary();
+      highlightWordInArticle(word);
+    }
+    window.getSelection()?.removeAllRanges();
+    hideSelectionPopover();
+    markVocabularyWord(word);
+  }
+
+  function initializeNewsDirectory() {
+    const buttons = [...document.querySelectorAll('[data-news-target]')];
+    const panels = [...document.querySelectorAll('[data-news-panel]')];
+    if (!buttons.length || !panels.length) return;
+
+    function showNews(id) {
+      buttons.forEach(button => button.classList.toggle('active', button.dataset.newsTarget === id));
+      panels.forEach(panel => { panel.hidden = panel.dataset.newsPanel !== id; });
+      resetActiveAudio();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => showNews(button.dataset.newsTarget));
+    });
+    showNews(buttons.find(button => button.classList.contains('active'))?.dataset.newsTarget || buttons[0].dataset.newsTarget);
+  }
+
+  function showTranslation(word, element) {
+    const item = vocabularyData.find(v => v.word === word);
+    const fallback = element ? {
+      phonetic: element.dataset.phonetic || '',
+      meaning: element.dataset.meaning || ''
+    } : null;
+    if (!item && !fallback?.meaning) return;
+    const phonetic = item?.phonetic || fallback.phonetic;
+    const meaning = item?.meaning || fallback.meaning;
+
+    document.querySelectorAll('.translation-tooltip').forEach(t => t.remove());
+
+    const tip = document.createElement('div');
+    tip.className = 'translation-tooltip cn';
+    tip.innerHTML = `
+      <div class="tooltip-phonetic">${phonetic || ''}</div>
+      <div class="tooltip-meaning">${meaning}</div>
+    `;
+    document.body.appendChild(tip);
+
+    const r = element.getBoundingClientRect();
+    tip.style.top = (window.scrollY + r.top - tip.offsetHeight - 12) + 'px';
+    tip.style.left = (window.scrollX + r.left) + 'px';
+
+    setTimeout(() => {
+      tip.style.transition = 'opacity .25s ease';
+      tip.style.opacity = '0';
+      setTimeout(() => tip.remove(), 260);
+    }, 2400);
+  }
+
+  function renderVocabulary() {
+    const c = document.getElementById('vocab-container');
+    const count = document.getElementById('vocab-count');
+    if (!c) return;
+    c.innerHTML = '';
+    if (count) count.textContent = vocabularyData.length;
+
+    vocabularyData.forEach(item => {
+      const wordForJs = JSON.stringify(item.word).replace(/</g, '\\u003c');
+      const row = document.createElement('div');
+      row.className = 'vocab-row';
+      row.dataset.word = item.word;
+      row.innerHTML = `
+        <div>
+          <div class="vocab-word">${escapeHtml(item.word)}</div>
+          <div class="vocab-phonetic">${escapeHtml(item.phonetic)}</div>
+        </div>
+        <div class="vocab-meta">
+          <div class="vocab-meaning cn">${escapeHtml(item.meaning)}</div>
+          <div class="vocab-example">&ldquo;${escapeHtml(item.example)}&rdquo;</div>
+          <div class="vocab-example-zh cn">${escapeHtml(item.exampleZh || '')}</div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="icon-btn" title="Edge TTS 朗读 / Listen" onclick='speak(vocabularyData.find(v => v.word === ${wordForJs}), this)'>
+            <i class="fa-solid fa-volume-high text-xs"></i>
+          </button>
+          <button class="icon-btn danger" title="删除 / Remove" onclick='deleteVocabulary(${wordForJs})'>
+            <i class="fa-solid fa-xmark text-xs"></i>
+          </button>
+        </div>
+      `;
+      c.appendChild(row);
+    });
+  }
+
+  function makeHighlightsClickable() {
+    document.querySelectorAll('.vocab-highlight').forEach(span => {
+      span.onclick = () => showTranslation(span.dataset.word, span);
+    });
+  }
+
+  function switchTheme(theme) {
+    document.body.classList.toggle('premium', theme === 'premium');
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.theme === theme);
+    });
+    try { localStorage.setItem('economist-theme', theme); } catch(e) {}
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    renderVocabulary();
+    makeHighlightsClickable();
+    addParagraphAudioControls();
+    initializeNewsDirectory();
+    document.getElementById('selection-vocab-popover')?.addEventListener('click', addSelectedTextToVocabulary);
+    document.addEventListener('selectionchange', () => setTimeout(showSelectionPopover, 0));
+    document.addEventListener('mousedown', event => {
+      if (!event.target.closest('#selection-vocab-popover')) hideSelectionPopover();
+    });
+    try {
+      const saved = localStorage.getItem('economist-theme');
+      if (saved) switchTheme(saved);
+    } catch(e) {}
+  });
+</script>
+</body>
+</html>
